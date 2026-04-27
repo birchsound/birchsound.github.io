@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKATV — Content Legacy | Birch Sound</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:#0a0a0c;color:#faf8f4;font-feature-settings:"ss01","cv11"}
+:root{
+  --bg:#0a0a0c;--bg-alt:#07070a;--ink-0:#faf8f4;--ink-1:rgba(232,228,220,.72);--ink-2:rgba(232,228,220,.38);
+  --accent:#a696e0;--border:rgba(232,228,220,.14);
+  --en:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --ko:'Pretendard',system-ui,sans-serif;
+  --mono:'JetBrains Mono','IBM Plex Mono',monospace;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --px:36px;
+}
+@media(max-width:768px){:root{--px:18px}}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.metatag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+
+/* Back nav */
+.back-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px var(--px);background:rgba(10,10,12,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.back-link{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);transition:color .2s}
+.back-link:hover{color:var(--accent)}
+
+/* Header */
+.portfolio-header{padding:140px var(--px) 80px;max-width:1200px;margin:0 auto}
+@media(max-width:768px){.portfolio-header{padding:100px var(--px) 60px}}
+.portfolio-title{font-family:var(--en);font-weight:700;font-size:clamp(48px,10vw,120px);letter-spacing:-.04em;line-height:.9;text-transform:uppercase}
+.portfolio-title .accent{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--accent);text-transform:none}
+.portfolio-desc{margin-top:32px;font-family:var(--en);font-size:16px;line-height:1.75;color:var(--ink-1);max-width:640px}
+
+/* Grid */
+.portfolio-grid{max-width:1200px;margin:0 auto;padding:0 var(--px) 120px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:768px){.portfolio-grid{grid-template-columns:1fr;gap:32px}}
+
+/* Card */
+.card{border:1px solid var(--border);overflow:hidden;transition:border-color .3s}
+.card:hover{border-color:var(--accent)}
+.card-img{height:280px;overflow:hidden;background:var(--bg-alt)}
+@media(max-width:768px){.card-img{height:200px}}
+.card-img img{width:100%;height:100%;object-fit:contain;filter:brightness(0.95);background:#111}
+.card-body{padding:24px}
+.card-year{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.08em;margin-bottom:8px}
+.card-title{font-family:var(--en);font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+.card-channel{font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+.card-desc{font-family:var(--en);font-size:14px;line-height:1.65;color:var(--ink-1)}
+
+/* Stats bar */
+.stats-row{max-width:1200px;margin:0 auto 60px;padding:0 var(--px);display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border)}
+@media(max-width:768px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:24px 20px;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+@media(max-width:768px){.stat:nth-child(2){border-right:none}.stat:nth-child(3),.stat:nth-child(4){border-top:1px solid var(--border)}}
+.stat-val{font-family:var(--en);font-size:clamp(36px,4.5vw,56px);font-weight:300;color:var(--accent);letter-spacing:-.03em;line-height:1}
+.stat-lbl{margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.1em;text-transform:uppercase}
+.stat-num{font-family:var(--mono);font-size:10px;color:var(--ink-2);letter-spacing:.1em;margin-bottom:8px}
+
+/* Card hover refinement */
+.card{position:relative;background:var(--bg-alt);transition:border-color .35s ease, transform .35s ease}
+.card::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover{border-color:color-mix(in oklch, var(--accent) 50%, transparent);transform:translateY(-3px)}
+.card:hover::after{transform:scaleX(1)}
+.card-img img{transition:transform .8s cubic-bezier(.2,.7,.2,1), filter .35s ease}
+.card:hover .card-img img{transform:scale(1.04);filter:brightness(1)}
+.card-title{transition:color .25s ease}
+.card:hover .card-title{color:var(--accent)}
+
+/* Header refinement */
+.portfolio-header{position:relative}
+.ph-corners{position:absolute;inset:120px var(--px) 60px;pointer-events:none}
+.ph-corners span{position:absolute;width:18px;height:18px;border:1px solid var(--ink-2)}
+.ph-corners span:nth-child(1){top:0;left:0;border-right:none;border-bottom:none}
+.ph-corners span:nth-child(2){top:0;right:0;border-left:none;border-bottom:none}
+@media(max-width:768px){.ph-corners{inset:90px var(--px) 40px}.ph-corners span{width:14px;height:14px}}
+
+/* Footer refinement */
+.pf-foot{padding:60px var(--px) 48px;border-top:1px solid var(--border);max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+@media(max-width:640px){.pf-foot{flex-direction:column;text-align:center}}
+.pf-foot-back{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);transition:opacity .2s}
+.pf-foot-back:hover{opacity:.7}
+
+/* Award card visual */
+.award-img{position:relative;height:280px;overflow:hidden;background:#0a0a0c;display:flex;align-items:center;justify-content:center;padding:28px}
+@media(max-width:768px){.award-img{height:240px;padding:22px}}
+.aw-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 40% at 50% 50%, rgba(166,150,224,.12) 0%, transparent 60%),
+  linear-gradient(180deg, #0a0a0c 0%, #0d0a14 100%);
+  z-index:0}
+.aw-stack{position:relative;z-index:1;width:100%;text-align:center}
+
+.aw-eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px}
+.aw-line{flex:0 1 60px;height:1px;background:color-mix(in oklch, var(--accent) 50%, transparent)}
+.aw-eye-text{font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;white-space:nowrap}
+
+.aw-big{display:flex;align-items:baseline;justify-content:center;gap:14px;margin-bottom:6px}
+.aw-num{font-family:var(--en);font-weight:300;font-size:64px;color:var(--ink-0);letter-spacing:-.04em;line-height:1}
+.aw-slash{font-family:var(--en);font-weight:200;font-size:48px;color:var(--ink-2);line-height:1}
+.aw-word{font-family:var(--serif);font-style:italic;font-weight:300;font-size:36px;color:var(--accent);line-height:1;letter-spacing:-.01em}
+
+.aw-years{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-2);text-transform:uppercase;margin-bottom:18px}
+
+.aw-titles{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-family:var(--en);font-size:12px;color:rgba(232,228,220,.65);line-height:1.4}
+.aw-titles li{position:relative;padding-right:14px;white-space:nowrap}
+.aw-titles li::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:3px;height:3px;border-radius:50%;background:color-mix(in oklch, var(--accent) 60%, transparent)}
+.aw-titles li:last-child{padding-right:0}
+.aw-titles li:last-child::after{display:none}
+.aw-mute{color:var(--ink-2);font-family:var(--mono);font-size:10px;letter-spacing:.06em;margin-left:4px}
+
+.card:hover .aw-num{color:var(--accent);transition:color .3s ease}
+.card:hover .aw-bg{background:radial-gradient(ellipse 60% 40% at 50% 50%, rgba(166,150,224,.18) 0%, transparent 60%),linear-gradient(180deg, #0a0a0c 0%, #0d0a14 100%);transition:background .4s ease}
+
+/* Section divider */
+.pg-section-tag{max-width:1200px;margin:0 auto 24px;padding:0 var(--px);display:flex;align-items:center;gap:14px}
+.pg-section-tag .ln{flex:1;height:1px;background:var(--border)}
+</style>
+</head>
+<body>
+
+<nav class="back-nav">
+  <a href="index_en.html" class="back-link">&larr; Back to Birch Sound</a>
+  <div class="metatag">AKATV &mdash; Content Legacy</div>
+</nav>
+
+<header class="portfolio-header">
+  <div class="ph-corners"><span></span><span></span></div>
+  <div class="metatag" style="margin-bottom:14px;color:var(--accent)">[ FOUNDATION 01 &middot; CONTENT ]</div>
+  <h1 class="portfolio-title">CONTENT<br><span class="accent">legacy.</span></h1>
+  <p class="portfolio-desc">Since its founding in 2015, AKATV (now Birch Sound) has been at the heart of Korean broadcast production, planning and producing hundreds of content titles. From outsourced production for major networks to web-original IP development and global multi-platform distribution &mdash; a decade of production legacy.</p>
+</header>
+
+<div class="pg-section-tag">
+  <span class="metatag" style="color:var(--accent)">[ AT A GLANCE ]</span>
+  <span class="ln"></span>
+</div>
+
+<div class="stats-row">
+  <div class="stat">
+    <div class="stat-num">/ 01</div>
+    <div class="stat-val">500+</div>
+    <div class="stat-lbl">Episodes produced</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">/ 02</div>
+    <div class="stat-val">6</div>
+    <div class="stat-lbl">Countries</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">/ 03</div>
+    <div class="stat-val">10+</div>
+    <div class="stat-lbl">Years on air</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">/ 04</div>
+    <div class="stat-val">4</div>
+    <div class="stat-lbl">Networks &amp; platforms</div>
+  </div>
+</div>
+
+<div class="pg-section-tag" style="margin-top:80px">
+  <span class="metatag" style="color:var(--accent)">[ SELECTED WORKS ]</span>
+  <span class="ln"></span>
+</div>
+
+<div class="portfolio-grid">
+
+  <div class="card">
+    <div class="card-img">
+      <img src="img/produce101_s2.jpg" alt="Produce 101 Season 2" style="object-fit:contain;background:#111">
+    </div>
+    <div class="card-body">
+      <div class="card-year">2017</div>
+      <div class="card-title">Produce 101 Season 2</div>
+      <div class="card-channel">CJ ENM M.net &middot; Audition Reality &middot; Production</div>
+      <div class="card-desc">A national boy group project where 101 male trainees compete for votes from "National Producers" to form an 11-member debut group. The final lineup debuted as Wanna One.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img">
+      <img src="img/produce48.jpg" alt="Produce 48" style="object-fit:contain;background:#111">
+    </div>
+    <div class="card-body">
+      <div class="card-year">2018</div>
+      <div class="card-title">Produce 48</div>
+      <div class="card-channel">CJ ENM M.net &middot; Audition Reality &middot; Production</div>
+      <div class="card-desc">The third season of Produce 101, combining Korean and Japanese idol trainees on a massive scale. A crossover with the AKB48 system that proved the potential of global formats. The final lineup debuted as IZ*ONE.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img">
+      <img src="img/mbc_fearless_crop.jpg" alt="MBC Fearless Guys" style="object-fit:contain;background:#111">
+    </div>
+    <div class="card-body">
+      <div class="card-year">2017</div>
+      <div class="card-title">MBC &mdash; Fearless Guys</div>
+      <div class="card-channel">MBC &middot; Reality &middot; Original</div>
+      <div class="card-desc">An outsourced reality show produced for MBC, one of Korea's major terrestrial broadcasters. A large-scale entertainment program themed around fearless challenges and adventures.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img">
+      <img src="img/jtbc_event_king.webp" alt="JTBC Event King" style="object-fit:contain;background:#111">
+    </div>
+    <div class="card-body">
+      <div class="card-year">2016</div>
+      <div class="card-title">JTBC &mdash; Event King</div>
+      <div class="card-channel">JTBC &middot; Reality &middot; Original</div>
+      <div class="card-desc">A collaborative reality show for JTBC, a leading Korean cable network. An entertainment program selecting the "Event King" of the month.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="award-img">
+      <div class="aw-bg"></div>
+      <div class="aw-stack">
+        <div class="aw-eyebrow">
+          <span class="aw-line"></span>
+          <span class="aw-eye-text">Naver TV Awards</span>
+          <span class="aw-line"></span>
+        </div>
+        <div class="aw-big">
+          <span class="aw-num">06</span>
+          <span class="aw-slash">/</span>
+          <span class="aw-word">Selected</span>
+        </div>
+        <div class="aw-years">2016 &mdash; 2017</div>
+        <ul class="aw-titles">
+          <li>Swaggers Made In USA</li>
+          <li>BunBOX</li>
+          <li>Rapper Car <span class="aw-mute">S1 / S2</span></li>
+          <li>Roadman</li>
+          <li>Love Battle</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-year">2016 &mdash; 2017</div>
+      <div class="card-title">Naver TV Awards</div>
+      <div class="card-channel">Naver TV &middot; Amazon Prime</div>
+      <div class="card-desc">Selected for Naver TV web entertainment distribution support in both 2016 and 2017. Korea's first hip-hop original content to reach Amazon Prime.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img">
+      <img src="img/page_07.jpg" alt="Swaggers Made In USA" style="object-fit:contain;background:#111">
+    </div>
+    <div class="card-body">
+      <div class="card-year">2016</div>
+      <div class="card-title">Swaggers Made In USA</div>
+      <div class="card-channel">Web Original &middot; Amazon Prime</div>
+      <div class="card-desc">A web-original series following four Korean rappers on their journey into the American hip-hop scene. Korea's first hip-hop reality content to be distributed on Amazon Prime.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="pf-foot">
+  <div>
+    <div class="metatag" style="color:var(--ink-1)">AKATV &middot; now Birch Sound Inc.</div>
+    <div class="metatag" style="margin-top:6px">est. 2015 &middot; Seoul, Korea</div>
+  </div>
+  <a href="index_en.html" class="pf-foot-back">&larr; Back to Main</a>
+</footer>
+
+</body>
+</html>
