@@ -1126,7 +1126,8 @@ if(_cm) _cm.addEventListener('click',function(e){
 (function(){
   var scrollBtn = document.getElementById('langToggle');
   var heroBtn = document.getElementById('heroLangToggle');
-  var lang = 'ko';
+  var params = new URLSearchParams(window.location.search);
+  var lang = params.get('lang') === 'en' ? 'en' : 'ko';
   function applyLanguage(targetLang) {
     document.querySelectorAll('.i18n').forEach(function(el){
       var text = el.getAttribute('data-' + targetLang);
@@ -1145,6 +1146,13 @@ if(_cm) _cm.addEventListener('click',function(e){
     var pfLink = document.getElementById('contentPortfolioLink');
     if(pfLink) pfLink.href = lang === 'ko' ? 'portfolio.html' : 'portfolio_en.html';
     applyLanguage(lang);
+  }
+  if(lang === 'en') {
+    if(scrollBtn) scrollBtn.textContent = 'EN / KO';
+    if(heroBtn) heroBtn.textContent = '[ EN / KO ]';
+    var pfLink = document.getElementById('contentPortfolioLink');
+    if(pfLink) pfLink.href = 'portfolio_en.html';
+    applyLanguage('en');
   }
   if(scrollBtn) scrollBtn.addEventListener('click', toggle);
   if(heroBtn) heroBtn.addEventListener('click', toggle);
