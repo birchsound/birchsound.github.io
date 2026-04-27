@@ -1355,6 +1355,11 @@ body.tp-locked{overflow:hidden}
   var modal = document.getElementById('tp-modal');
   if(!overlay || !modal) return;
   function open(){
+    var curLang = document.documentElement.lang || 'ko';
+    modal.querySelectorAll('.i18n').forEach(function(el){
+      var text = el.getAttribute('data-' + curLang);
+      if(text) el.textContent = text;
+    });
     overlay.classList.add('is-open');
     modal.classList.add('is-open');
     document.body.classList.add('tp-locked');
