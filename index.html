@@ -99,8 +99,16 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 .hero-bg{position:absolute;inset:0}
 .hero-overlay{position:absolute;inset:0;background:radial-gradient(900px 700px at 50% 65%,rgba(61,43,108,.45) 0%,rgba(10,10,12,.9) 80%),linear-gradient(180deg,rgba(10,10,12,.55) 0%,rgba(10,10,12,.75) 100%)}
 .hero-title-block{position:absolute;left:0;right:0;top:50%;transform:translateY(-55%);z-index:4;padding:0 var(--px);text-align:center}
-.hero-title{font-family:var(--en);font-weight:700;font-size:clamp(48px,15vw,232px);letter-spacing:-.045em;line-height:.88;text-transform:uppercase}
-.hero-title sup{font-size:clamp(20px,4vw,52px);vertical-align:super;margin-left:8px;font-weight:400}
+.hero-title{font-family:var(--en);font-weight:800;font-size:clamp(64px,16vw,260px);letter-spacing:-.05em;line-height:.84;text-transform:uppercase;display:block;position:relative}
+.hero-title .ttl-row{display:block}
+.hero-title .ttl-c{font-family:var(--en);font-size:clamp(20px,2.6vw,46px);vertical-align:top;font-weight:400;margin-left:.06em;letter-spacing:0;display:inline-block;border:1px solid currentColor;border-radius:50%;width:clamp(26px,3vw,52px);height:clamp(26px,3vw,52px);line-height:clamp(24px,2.8vw,48px);text-align:center;position:relative;top:.18em}
+/* hero corner brackets */
+.hero-corners{position:absolute;inset:20px;pointer-events:none;z-index:6}
+.hero-corners span{position:absolute;width:24px;height:24px;border:1px solid var(--ink-1)}
+.hero-corners span:nth-child(1){top:0;left:0;border-right:none;border-bottom:none}
+.hero-corners span:nth-child(2){top:0;right:0;border-left:none;border-bottom:none}
+.hero-corners span:nth-child(3){bottom:0;left:0;border-right:none;border-top:none}
+.hero-corners span:nth-child(4){bottom:0;right:0;border-left:none;border-top:none}
 .hero-pill{display:inline-block;padding:8px 22px;border:1px solid rgba(232,228,220,.5);border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-top:28px}
 .hero-services{position:absolute;top:80px;left:var(--px);z-index:5}
 .hero-services .metatag{margin-bottom:8px}
@@ -119,25 +127,32 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 .corner--br{bottom:28px;right:var(--px);border-bottom:1px solid var(--ink-0);border-right:1px solid var(--ink-0)}
 
 /* CREED */
-.creed{padding:140px var(--px);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center}
-@media(max-width:768px){.creed{padding:80px var(--px)}}
+.creed{padding:170px var(--px) 130px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center}
+@media(max-width:768px){.creed{padding:96px var(--px) 72px}}
 .creed-heading{font-family:var(--en);font-size:clamp(48px,10vw,120px);font-weight:700;letter-spacing:-.04em;line-height:.95;text-transform:uppercase}
 .creed-heading .outline{-webkit-text-stroke:1.5px var(--ink-0);color:transparent}
-.creed-heading .italic-accent{font-family:var(--serif);font-style:italic;text-transform:none;font-weight:300;color:var(--accent)}
-.creed-sub{margin-top:48px;font-family:var(--ko);font-size:clamp(16px,2.5vw,22px);color:var(--ink-1);max-width:780px;margin-left:auto;margin-right:auto;line-height:1.75;word-break:keep-all}
+.creed-heading .italic-accent{font-family:var(--serif);font-style:italic;text-transform:none;font-weight:300;color:var(--accent);font-size:1.05em;letter-spacing:-.02em}
+.creed-sub{margin-top:68px;font-family:var(--ko);font-size:clamp(15px,2.3vw,20px);color:var(--ink-1);max-width:680px;margin-left:auto;margin-right:auto;line-height:1.85;word-break:keep-all}
 
 /* ORIGIN / ABOUT */
-.origin{padding:140px var(--px) 60px}
-@media(max-width:768px){.origin{padding:80px var(--px) 40px}}
-.origin-grid{display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start;max-width:var(--max-w);margin:0 auto}
+.origin{padding:120px var(--px) 80px}
+@media(max-width:768px){.origin{padding:72px var(--px) 56px}}
+.origin-grid{display:grid;grid-template-columns:240px 1fr;gap:80px;align-items:start;max-width:var(--max-w);margin:0 auto}
+@media(max-width:1024px){.origin-grid{grid-template-columns:200px 1fr;gap:56px}}
 @media(max-width:768px){.origin-grid{grid-template-columns:1fr;gap:40px}}
-.origin-sidebar .chapter-list{font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--ink-2)}
+.origin-sidebar{position:sticky;top:120px}
+@media(max-width:768px){.origin-sidebar{position:static;top:auto}}
+.origin-sidebar .chapter-list{font-family:var(--mono);font-size:11px;line-height:2.1;color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase}
+.origin-sidebar .chapter-list > div{transition:color .25s,padding-left .25s;padding-left:0;position:relative;cursor:default}
+.origin-sidebar .chapter-list > div::before{content:"";position:absolute;left:-14px;top:50%;width:8px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:right center;transition:transform .3s}
+.origin-sidebar .chapter-list > div.is-active{color:var(--ink-0);padding-left:14px}
+.origin-sidebar .chapter-list > div.is-active::before{transform:scaleX(1);transform-origin:left center}
 .origin-sidebar .extra{margin-top:40px;padding-top:24px;border-top:1px solid rgba(232,228,220,.18)}
-.origin-heading{font-family:var(--en);font-weight:700;font-size:clamp(64px,12vw,180px);letter-spacing:-.05em;line-height:.86;text-transform:uppercase}
-.origin-heading .italic-accent{font-family:var(--serif);font-style:italic;text-transform:none;font-weight:300;color:var(--accent)}
-.origin-body{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px}
-@media(max-width:768px){.origin-body{grid-template-columns:1fr;gap:24px}}
-.origin-body p{font-family:var(--ko);font-size:16px;line-height:1.75;color:var(--ink-1);word-break:keep-all}
+.origin-heading{font-family:var(--en);font-weight:700;font-size:clamp(56px,10vw,148px);letter-spacing:-.05em;line-height:.84;text-transform:uppercase}
+.origin-heading .italic-accent{font-family:var(--serif);font-style:italic;text-transform:none;font-weight:300;color:var(--accent);font-size:1.04em}
+.origin-body{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:80px}
+@media(max-width:768px){.origin-body{grid-template-columns:1fr;gap:28px;margin-top:48px}}
+.origin-body p{font-family:var(--ko);font-size:15.5px;line-height:1.85;color:var(--ink-1);word-break:keep-all}
 .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;border:1px solid var(--border)}
 @media(max-width:768px){.stats-bar{grid-template-columns:repeat(2,1fr)}}
 .stat-cell{padding:24px 20px;border-right:1px solid var(--border)}
@@ -147,19 +162,29 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 .stat-label{margin-top:10px}
 
 /* TIMELINE */
-.timeline-section{padding:60px var(--px) 120px;background:var(--bg-alt)}
-@media(max-width:768px){.timeline-section{padding:40px var(--px) 80px}}
-.timeline-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:60px;max-width:var(--max-w);margin-left:auto;margin-right:auto;flex-wrap:wrap;gap:24px}
-.timeline-title{font-family:var(--en);font-size:clamp(48px,8vw,96px);font-weight:700;letter-spacing:-.04em;line-height:.95;text-transform:uppercase}
-.timeline-vertical{max-width:var(--max-w);margin:0 auto;display:flex;flex-direction:column}
-.tl-entry{display:grid;grid-template-columns:180px 40px 1fr 1.6fr;gap:32px;padding:36px 0;border-top:1px solid rgba(232,228,220,.08);align-items:baseline}
-@media(max-width:768px){.tl-entry{grid-template-columns:80px 1fr;gap:20px;padding:24px 0}.tl-dot{display:none}.tl-desc{grid-column:span 1}}
-.tl-year{font-family:var(--en);font-size:48px;font-weight:300;letter-spacing:-.03em;line-height:1}
-.tl-dot{display:flex;justify-content:center;padding-top:8px}
-.tl-dot span{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px rgba(166,150,224,.6),0 0 0 4px rgba(166,150,224,.12)}
-.tl-title{font-family:var(--ko);font-size:20px;font-weight:400;margin-bottom:6px}
-.tl-title-en{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-2);text-transform:uppercase}
-.tl-desc{font-family:var(--ko);font-size:15px;line-height:1.7;color:var(--ink-1);word-break:keep-all;max-width:540px}
+.timeline-section{padding:120px var(--px) 140px;background:var(--bg-alt)}
+@media(max-width:768px){.timeline-section{padding:72px var(--px) 88px}}
+.timeline-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:80px;max-width:var(--max-w);margin-left:auto;margin-right:auto;flex-wrap:wrap;gap:24px}
+.timeline-title{font-family:var(--en);font-size:clamp(48px,8vw,104px);font-weight:700;letter-spacing:-.045em;line-height:.92;text-transform:uppercase}
+.timeline-vertical{max-width:var(--max-w);margin:0 auto;display:flex;flex-direction:column;position:relative}
+/* continuous spine line through dots */
+.timeline-vertical::before{content:"";position:absolute;left:calc(180px + 32px + 20px);top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(166,150,224,.18) 8%,rgba(166,150,224,.18) 92%,transparent)}
+@media(max-width:768px){.timeline-vertical::before{display:none}}
+.tl-entry{display:grid;grid-template-columns:180px 40px 1fr 1.4fr;gap:32px;padding:32px 0;border-top:1px solid rgba(232,228,220,.06);align-items:baseline;transition:background .25s,padding-left .3s;position:relative}
+.tl-entry:first-child{border-top:none}
+.tl-entry:hover{background:rgba(232,228,220,.015);padding-left:8px}
+.tl-entry:hover .tl-year{color:var(--accent)}
+.tl-entry:hover .tl-dot span{transform:scale(1.35);box-shadow:0 0 26px rgba(166,150,224,.85),0 0 0 6px rgba(166,150,224,.18)}
+@media(max-width:768px){.tl-entry{grid-template-columns:84px 1fr;gap:18px;padding:22px 0}.tl-entry:hover{padding-left:0}.tl-dot{display:none}.tl-desc{grid-column:span 1}.tl-year{font-size:32px}}
+.tl-year{font-family:var(--en);font-size:clamp(40px,5vw,64px);font-weight:200;letter-spacing:-.04em;line-height:.95;color:var(--ink-1);transition:color .25s;font-variant-numeric:tabular-nums}
+.tl-dot{display:flex;justify-content:center;align-items:center;padding-top:.55em}
+.tl-dot span{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px rgba(166,150,224,.5),0 0 0 4px rgba(166,150,224,.10);transition:transform .25s,box-shadow .25s;position:relative;z-index:2}
+/* future entry (last) — hollow ring */
+.tl-entry.is-future .tl-dot span{background:var(--bg-alt);border:1.5px solid var(--accent);box-shadow:0 0 14px rgba(166,150,224,.35),0 0 0 4px rgba(166,150,224,.10)}
+.tl-entry.is-future .tl-year{color:var(--accent)}
+.tl-title{font-family:var(--ko);font-size:21px;font-weight:500;margin-bottom:8px;letter-spacing:-.01em}
+.tl-title-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-2);text-transform:uppercase}
+.tl-desc{font-family:var(--ko);font-size:14.5px;line-height:1.75;color:var(--ink-1);word-break:keep-all;max-width:540px}
 
 /* ENGINES */
 .engines-section{padding:140px var(--px);border-top:1px solid var(--border)}
@@ -203,6 +228,44 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 .stage-stat .val{font-size:20px;color:var(--accent)}
 .stage-stat .lbl{font-size:11px;color:var(--ink-2);letter-spacing:.08em;text-transform:uppercase}
 
+/* Stage wrap — 04 Live IP as outer container holding 01/02/03 */
+.stage-wrap{position:relative;border:1px solid var(--accent);background:linear-gradient(180deg,rgba(166,150,224,.04) 0%,rgba(166,150,224,.015) 50%,rgba(166,150,224,.04) 100%);padding:56px 56px 48px;margin-top:8px}
+@media(max-width:768px){.stage-wrap{padding:36px 24px 32px}}
+.stage-wrap::before,.stage-wrap::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--accent);background:var(--bg-alt)}
+.stage-wrap::before{top:-7px;left:-7px;border-right:none;border-bottom:none}
+.stage-wrap::after{top:-7px;right:-7px;border-left:none;border-bottom:none}
+.stage-corner-bl,.stage-corner-br{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--accent);background:var(--bg-alt);bottom:-7px}
+.stage-corner-bl{left:-7px;border-right:none;border-top:none}
+.stage-corner-br{right:-7px;border-left:none;border-top:none}
+.stage-tag-line{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.stage-tag-line .tag-pill{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;padding:6px 12px;border:1px solid var(--accent);background:var(--bg-alt)}
+.stage-tag-line .tag-rule{flex:1;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
+.stage-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:36px;border-bottom:1px dashed rgba(166,150,224,.25);margin-bottom:36px}
+@media(max-width:768px){.stage-head{grid-template-columns:1fr;gap:18px;padding-bottom:24px;margin-bottom:28px}}
+.stage-num-big{font-family:var(--en);font-size:clamp(72px,9vw,128px);font-weight:700;letter-spacing:-.05em;line-height:.82;-webkit-text-stroke:1.5px var(--accent);color:transparent}
+.stage-name-big{font-family:var(--en);font-size:clamp(40px,5.5vw,64px);font-weight:700;letter-spacing:-.035em;line-height:.95;text-transform:uppercase;color:var(--ink-0)}
+.stage-name-big .it{font-family:var(--serif);font-style:italic;font-weight:300;text-transform:none;color:var(--accent);font-size:.78em;display:block;margin-top:8px;letter-spacing:-.01em}
+.stage-meta{font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.06em;text-align:right;line-height:1.7}
+@media(max-width:768px){.stage-meta{text-align:left}}
+.stage-meta b{color:var(--accent);font-weight:500}
+.stage-foundations-label{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.stage-foundations-label .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--ink-2);text-transform:uppercase}
+.stage-foundations-label .rule{flex:1;height:1px;background:rgba(232,228,220,.12)}
+.stage-foundations-label .count{font-family:var(--mono);font-size:10px;color:var(--ink-2);letter-spacing:.06em}
+.stage-edge{margin-top:48px;padding-top:40px;border-top:1px dashed rgba(166,150,224,.25);display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+@media(max-width:1024px){.stage-edge{grid-template-columns:1fr;gap:32px}}
+.edge-quote{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.4vw,28px);line-height:1.4;color:var(--ink-0);word-break:keep-all}
+.edge-quote-accent{display:block;margin-top:10px;color:var(--accent)}
+.edge-reasons{display:flex;flex-direction:column;gap:18px}
+.edge-reason{padding-bottom:16px;border-bottom:1px solid rgba(232,228,220,.08)}
+.edge-reason:last-child{border-bottom:none;padding-bottom:0}
+.edge-tag{font-family:var(--ko);font-weight:600;font-size:11.5px;letter-spacing:.18em;color:var(--accent);margin-bottom:10px}
+.edge-body{font-family:var(--ko);font-size:13.5px;line-height:1.7;color:var(--ink-1);word-break:keep-all}
+.ops-partner-btn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:8px 14px;border:1px solid var(--border-strong);background:transparent;font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-1);text-decoration:none;transition:all .25s ease}
+.ops-partner-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(166,150,224,.06)}
+.ops-partner-arrow{font-size:13px;line-height:1;transition:transform .25s ease}
+.ops-partner-btn:hover .ops-partner-arrow{transform:translate(2px,-2px)}
+
 /* Legacy engine-row styles kept for compatibility */
 .engine-row{padding:40px 0;border-top:1px solid var(--border);display:grid;grid-template-columns:120px 320px 1fr 280px;gap:40px;align-items:start}
 @media(max-width:1024px){.engine-row{grid-template-columns:1fr;gap:20px}}
@@ -213,6 +276,12 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 .flagship-meta-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:36px;flex-wrap:wrap;gap:12px}
 .flagship-title{font-family:var(--en);font-size:clamp(48px,15vw,220px);font-weight:700;letter-spacing:-.055em;line-height:.86;text-transform:uppercase}
 .flagship-title .outline{-webkit-text-stroke:2px var(--ink-0);color:transparent}
+.flagship-tba{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:8px 14px;border:1px solid color-mix(in oklch, var(--accent) 35%, transparent);border-radius:999px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);background:color-mix(in oklch, var(--accent) 6%, transparent)}
+.flagship-tba .tba-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 color-mix(in oklch, var(--accent) 60%, transparent);animation:tbaPulse 2.4s ease-out infinite}
+@keyframes tbaPulse{0%{box-shadow:0 0 0 0 color-mix(in oklch, var(--accent) 60%, transparent)}70%{box-shadow:0 0 0 10px color-mix(in oklch, var(--accent) 0%, transparent)}100%{box-shadow:0 0 0 0 color-mix(in oklch, var(--accent) 0%, transparent)}}
+.flagship-block{margin-top:28px;padding:20px 0 20px 22px;border-left:1px solid var(--rule)}
+.flagship-block-label{margin-bottom:10px}
+.flagship-block-body{font-family:var(--ko);font-size:14px;line-height:1.7;color:var(--ink-1);word-break:keep-all}
 .flagship-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px}
 @media(max-width:768px){.flagship-grid{grid-template-columns:1fr;gap:40px}}
 .flagship-quote{font-family:var(--serif);font-style:italic;font-size:clamp(24px,4vw,48px);font-weight:300;line-height:1.1;margin-bottom:28px}
@@ -293,6 +362,51 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 .flagship-main-img{width:100%;height:460px;position:relative;overflow:hidden}
 @media(max-width:768px){.flagship-main-img{height:260px}}
 
+/* Business Tracks — refined */
+.tracks-lede{font-family:var(--ko);font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:var(--ink-1);max-width:760px;margin-bottom:28px;word-break:keep-all;text-wrap:pretty}
+.tracks-quote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(22px,2.6vw,32px);line-height:1.4;color:var(--accent);max-width:780px;margin-bottom:36px;word-break:keep-all;text-wrap:balance}
+.tracks-quote .pbm{font-family:var(--en);font-style:normal;font-weight:600;font-size:.62em;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);display:block;margin-top:14px}
+.tracks-h2{font-family:var(--en);font-weight:700;font-size:clamp(48px,8vw,116px);letter-spacing:-.045em;line-height:.92;text-transform:uppercase;margin-bottom:8px}
+.tracks-h2 .it{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--accent);text-transform:none;letter-spacing:-.01em}
+.tracks-divider{display:flex;align-items:center;gap:14px;margin:48px 0 32px}
+.tracks-divider .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-2);text-transform:uppercase}
+.tracks-divider .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
+.track-card-v2{position:relative;overflow:hidden;border:1px solid var(--border);background:var(--bg-alt);transition:border-color .35s ease,transform .35s ease}
+.track-card-v2:hover{border-color:var(--accent);transform:translateY(-3px)}
+.track-card-v2 .img-wrap{position:relative;height:260px;overflow:hidden}
+.track-card-v2 .img-wrap img{width:100%;height:100%;object-fit:cover;filter:brightness(.55);transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .35s ease}
+.track-card-v2:hover .img-wrap img{transform:scale(1.06);filter:brightness(.7)}
+.track-card-v2 .img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,12,0) 40%,rgba(10,10,12,.85) 100%)}
+.track-card-v2 .corner{position:absolute;top:14px;right:14px;width:10px;height:10px;border-top:1px solid var(--accent);border-right:1px solid var(--accent);opacity:.7}
+.track-card-v2 .track-letter{position:absolute;left:20px;bottom:18px;font-family:var(--en);font-size:64px;font-weight:700;letter-spacing:-.04em;line-height:.85;color:transparent;-webkit-text-stroke:1.5px var(--accent);z-index:2}
+.track-card-v2 .track-letter .sub{display:block;font-size:9px;font-weight:600;letter-spacing:.22em;-webkit-text-stroke:0;color:var(--accent);margin-top:2px;text-transform:uppercase}
+.track-card-v2 .body{padding:28px 24px 26px}
+.track-card-v2 .body .name{font-family:var(--en);font-size:22px;font-weight:700;letter-spacing:-.02em;text-transform:uppercase;color:var(--ink-0);margin-bottom:10px}
+.track-card-v2 .body .desc{font-family:var(--ko);font-size:13.5px;line-height:1.7;color:var(--ink-1);word-break:keep-all;text-wrap:pretty;margin-bottom:14px}
+.track-card-v2 .body .meta{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-2);text-transform:uppercase;padding-top:14px;border-top:1px solid rgba(232,228,220,.08)}
+.track-card-v2 .body .meta .dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.track-cards-v2{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.track-cards-v2{grid-template-columns:1fr}}
+.tba{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);font-style:normal}
+/* Why Now — wave shifts */
+.whynow-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+@media(max-width:900px){.whynow-grid{grid-template-columns:1fr}}
+.whynow-card{position:relative;padding:48px 32px 40px;border-right:1px solid var(--border);min-height:340px;display:flex;flex-direction:column}
+.whynow-card:last-child{border-right:none}
+@media(max-width:900px){.whynow-card{border-right:none;border-bottom:1px solid var(--border);min-height:auto;padding:40px 24px}
+  .whynow-card:last-child{border-bottom:none}}
+.whynow-card::before{content:"";position:absolute;top:0;left:0;width:0;height:2px;background:var(--accent);transition:width .9s cubic-bezier(.2,.7,.2,1) .15s}
+.whynow-card.in::before{width:100%}
+.whynow-num{font-family:var(--en);font-size:13px;font-weight:600;letter-spacing:.3em;color:var(--accent);margin-bottom:24px}
+.whynow-num::before{content:"";display:inline-block;width:24px;height:1px;background:var(--accent);vertical-align:middle;margin-right:12px;transform:translateY(-2px)}
+.whynow-title{font-family:var(--en);font-size:clamp(22px,2.4vw,28px);font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:20px;color:var(--ink-0)}
+.whynow-title.ko{font-family:var(--ko);letter-spacing:-.01em;word-break:keep-all;text-wrap:balance}
+.whynow-body{font-family:var(--ko);font-size:13.5px;line-height:1.75;color:var(--ink-1);word-break:keep-all;text-wrap:pretty;margin-top:auto}
+.whynow-lede{font-family:var(--ko);font-size:clamp(15px,1.4vw,17px);line-height:1.6;color:var(--ink-1);margin-bottom:64px;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:900px){.whynow-lede{white-space:normal;font-size:14px;line-height:1.75}}
+.whynow-lede.en{font-family:var(--ko)}
+.whynow-h2{font-family:var(--en);font-weight:700;font-size:clamp(48px,8vw,104px);letter-spacing:-.045em;line-height:.92;text-transform:uppercase;margin-bottom:28px;color:var(--ink-0)}
+.whynow-h2 .it{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--accent);text-transform:none;letter-spacing:-.01em}
 /* Why Now responsive */
 @media(max-width:768px){.why-now-grid{grid-template-columns:1fr !important}}
 
@@ -325,6 +439,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 
 <!-- HERO -->
 <section class="hero noise" id="hero">
+  <div class="hero-corners"><span></span><span></span><span></span><span></span></div>
   <div class="hero-bg">
     <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1800&q=80&auto=format&fit=crop" alt="Live concert crowd" style="width:100%;height:100%;object-fit:cover">
   </div>
@@ -347,8 +462,8 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
     <div class="metatag">[ SERVICES ]</div>
     <ul>
       <li><a href="#engine-content" style="color:var(--ink-0);text-decoration:none">[ 01 ] Content</a></li>
-      <li><a href="#engine-capital" style="color:var(--ink-0);text-decoration:none">[ 02 ] Capital</a></li>
-      <li><a href="#engine-technology" style="color:var(--ink-0);text-decoration:none">[ 03 ] Technology</a></li>
+      <li><a href="#engine-technology" style="color:var(--ink-0);text-decoration:none">[ 02 ] Technology</a></li>
+      <li><a href="#engine-capital" style="color:var(--ink-0);text-decoration:none">[ 03 ] Capital</a></li>
       <li><a href="#engine-live" style="color:var(--ink-0);text-decoration:none">[ 04 ] Live IP</a></li>
     </ul>
   </div>
@@ -360,7 +475,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
   </div>
 
   <div class="hero-title-block">
-    <h1 class="hero-title">BIRCH SOUND INC.</h1>
+    <h1 class="hero-title"><span class="ttl-row">BIRCH</span><span class="ttl-row">SOUND<span class="ttl-c">C</span></span></h1>
     <div><span class="hero-pill">&mdash; Built for Live &mdash;</span></div>
   </div>
 
@@ -394,9 +509,9 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
     <div class="origin-sidebar">
       <div class="metatag">[ 001 &middot; ABOUT US ]</div>
       <div class="chapter-list" style="margin-top:16px">
-        <div>[ 01 ] Content</div>
-        <div>[ 02 ] Capital</div>
-        <div>[ 03 ] Technology</div>
+        <div class="is-active">[ 01 ] Content</div>
+        <div>[ 02 ] Technology</div>
+        <div>[ 03 ] Capital</div>
         <div>[ 04 ] Live IP</div>
       </div>
     </div>
@@ -414,19 +529,19 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 
       <div class="stats-bar">
         <div class="stat-cell">
-          <div class="stat-val" data-count="500" data-suffix="+">0</div>
+          <div class="stat-val" data-count="500" data-suffix="+">—</div>
           <div class="metatag stat-label">Episodes produced</div>
         </div>
         <div class="stat-cell">
-          <div class="stat-val" data-count="10">0</div>
+          <div class="stat-val" data-count="10">—</div>
           <div class="metatag stat-label">Years of content</div>
         </div>
         <div class="stat-cell">
-          <div class="stat-val" data-count="6">0</div>
+          <div class="stat-val" data-count="6">—</div>
           <div class="metatag stat-label">Countries distributed</div>
         </div>
         <div class="stat-cell">
-          <div class="stat-val" data-count="4">0</div>
+          <div class="stat-val" data-count="4">—</div>
           <div class="metatag stat-label">Engines today</div>
         </div>
       </div>
@@ -467,7 +582,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
       <div class="tl-dot"><span></span></div>
       <div>
         <div class="tl-title i18n" data-ko="오디오 인텔리전스" data-en="Audio Intelligence">오디오 인텔리전스</div>
-        <div class="tl-title-en">Foundation 02 &mdash; Technology begins</div>
+        <div class="tl-title-en">Foundation 03 &mdash; Technology begins</div>
         <a href="https://www.art19.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:6px 14px;border:1px solid var(--accent);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:all .2s" onmouseover="this.style.background='var(--accent)';this.style.color='var(--bg)'" onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">with ART19 (Amazon) &nearr;</a>
       </div>
       <div class="tl-desc i18n" data-ko="팟캐스트를 단순 콘텐츠가 아닌 데이터 인텔리전스 플랫폼으로 접근. 오디오 광고 테크 및 청취자 행동 분석 시스템을 한국시장에 확산." data-en="Approached podcast as data intelligence platform, not just content. Expanded audio ad tech and listener behavior analytics in the Korean market.">팟캐스트를 단순 콘텐츠가 아닌 데이터 인텔리전스 플랫폼으로 접근. 오디오 광고 테크 및 청취자 행동 분석 시스템을 한국시장에 확산.</div>
@@ -495,7 +610,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
       <div class="tl-dot"><span></span></div>
       <div>
         <div class="tl-title i18n" data-ko="라이브 엔터테인먼트 펀드 설정" data-en="Live Entertainment Fund">라이브 엔터테인먼트 펀드 설정</div>
-        <div class="tl-title-en">Foundation 03 — Capital</div>
+        <div class="tl-title-en">Foundation 02 — Capital</div>
       </div>
       <div class="tl-desc i18n" data-ko="라이브 IP의 안정적 출범을 위한 엔터테인먼트 전문 투자 플랫폼 론칭." data-en="Entertainment-dedicated investment platform launched to support the stable launch of live IP.">라이브 IP의 안정적 출범을 위한 엔터테인먼트 전문 투자 플랫폼 론칭.</div>
     </div>
@@ -512,10 +627,44 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
       <div class="tl-year">2027</div>
       <div class="tl-dot"><span></span></div>
       <div>
-        <div class="tl-title i18n" data-ko="수렴. 아시아 플래그십, 5월." data-en="Convergence">수렴. 아시아 플래그십, 5월.</div>
+        <div class="tl-title i18n" data-ko="GOAL" data-en="GOAL">GOAL</div>
         <div class="tl-title-en">Direct Tour</div>
       </div>
-      <div class="tl-desc i18n" data-ko="콘텐츠&middot;자본&middot;기술 &mdash; 10년의 축적이 싱가포르 플래그십에서 하나로." data-en="Content, capital, technology &mdash; ten years converge at the Singapore Flagship.">콘텐츠&middot;자본&middot;기술 &mdash; 10년의 축적이 싱가포르 플래그십에서 하나로.</div>
+      <div class="tl-desc i18n" data-ko="콘텐츠&middot;자본&middot;기술 &mdash; 10년의 축적이 플래그십에서 하나로." data-en="Content, capital, technology &mdash; ten years converge at the Singapore Flagship.">콘텐츠&middot;자본&middot;기술 &mdash; 10년의 축적이 플래그십에서 하나로.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section style="padding:140px var(--px) 120px;border-top:1px solid var(--border)" class="fade-up">
+  <div class="content-max">
+    <div class="metatag" style="margin-bottom:18px">[ WHY NOW ]</div>
+    <h2 class="whynow-h2">THE MOMENT<br>IS <span class="it">now.</span></h2>
+    <p class="whynow-lede i18n"
+      data-ko="세 가지 거대한 변화가 동시에 일어나고 있습니다. 버치사운드는 이 세 개의 파도가 교차하는 지점에 서 있습니다."
+      data-en="Three massive shifts are converging at the same moment. Birch Sound stands precisely where these three waves meet.">세 가지 거대한 변화가 동시에 일어나고 있습니다. 버치사운드는 이 세 개의 파도가 교차하는 지점에 서 있습니다.</p>
+    <div class="whynow-grid">
+      <article class="whynow-card">
+        <div class="whynow-num">SHIFT / 01</div>
+        <h3 class="whynow-title ko i18n" data-ko="아시아 라이브 시장의 폭발" data-en="Asia&rsquo;s Live Market Explodes">아시아 라이브 시장의 폭발</h3>
+        <p class="whynow-body i18n"
+          data-ko="팬데믹 이후 아시아-태평양 라이브 공연 시장은 전례 없는 속도로 회복 중입니다. 억눌렸던 경험의 수요가 임계점을 넘었습니다."
+          data-en="Post-pandemic, the APAC live performance market is recovering at unprecedented speed. Pent-up demand for experience has crossed a tipping point.">팬데믹 이후 아시아-태평양 라이브 공연 시장은 전례 없는 속도로 회복 중입니다. 억눌렸던 경험의 수요가 임계점을 넘었습니다.</p>
+      </article>
+      <article class="whynow-card">
+        <div class="whynow-num">SHIFT / 02</div>
+        <h3 class="whynow-title ko i18n" data-ko="AI &middot; 버추얼 콘텐츠의 르네상스" data-en="AI &amp; Virtual Content Renaissance">AI &middot; 버추얼 콘텐츠의 르네상스</h3>
+        <p class="whynow-body i18n"
+          data-ko="AI 기반 버추얼 콘텐츠와 인터랙티브 기술은 가장 빠르게 성장하는 포맷입니다. 관객은 소비자에서 참여자로 진화하고 있습니다."
+          data-en="AI-powered virtual content and interactive tech are the fastest-growing formats. Audiences are evolving from consumers into participants.">AI 기반 버추얼 콘텐츠와 인터랙티브 기술은 가장 빠르게 성장하는 포맷입니다. 관객은 소비자에서 참여자로 진화하고 있습니다.</p>
+      </article>
+      <article class="whynow-card">
+        <div class="whynow-num">SHIFT / 03</div>
+        <h3 class="whynow-title ko i18n" data-ko="글로벌 엔터테인먼트 IP의 시대" data-en="The Era of Global Entertainment IP">글로벌 엔터테인먼트 IP의 시대</h3>
+        <p class="whynow-body i18n"
+          data-ko="엔터테인먼트 IP가 글로벌 시장에서 독립된 자산 카테고리로 부상하고 있습니다. 라이브 IP의 가치는 다시 평가되고 있습니다."
+          data-en="Entertainment IP is emerging as an independent asset class in global markets. The value of live IP is being re-rated.">엔터테인먼트 IP가 글로벌 시장에서 독립된 자산 카테고리로 부상하고 있습니다. 라이브 IP의 가치는 다시 평가되고 있습니다.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -529,8 +678,33 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
       data-ko="콘텐츠, 자본, 기술 &mdash; 세 개의 토대가 단 하나의 무대로 수렴합니다."
       data-en="Content, capital, technology &mdash; three foundations converging on one stage.">콘텐츠, 자본, 기술 &mdash; 세 개의 토대가 단 하나의 무대로 수렴합니다.</p>
 
-    <!-- Foundations: 3 cards -->
-    <div style="margin-bottom:16px"><span class="metatag" style="color:var(--accent)">[ FOUNDATIONS ]</span></div>
+    <!-- THE STAGE — 04 Live IP, holding 01/02/03 foundations inside -->
+    <div class="stage-tag-line" id="engine-live">
+      <span class="tag-pill">[ THE STAGE ]</span>
+      <span class="tag-rule"></span>
+      <span class="tag-pill" style="border-color:var(--border-strong);color:var(--ink-2)">3 + 1</span>
+    </div>
+    <div class="stage-wrap fade-up">
+      <span class="stage-corner-bl"></span><span class="stage-corner-br"></span>
+
+      <div class="stage-head">
+        <div class="stage-num-big">04</div>
+        <div>
+          <div class="stage-name-big">Live IP<span class="it i18n" data-ko="십 년이 만나는 단 하나의 무대." data-en="Where ten years converge.">Where ten years converge.</span></div>
+        </div>
+        <div class="stage-meta">
+          <b>Flagship Festival</b><br>
+          APAC Multi-City Tour<br>
+          Festival &middot; Exhibition
+        </div>
+      </div>
+
+      <div class="stage-foundations-label">
+        <span class="lbl">[ Built on three foundations ]</span>
+        <span class="rule"></span>
+        <span class="count">01 / 02 / 03</span>
+      </div>
+
     <div class="foundation-grid">
 
       <!-- 01 Content -->
@@ -557,10 +731,34 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
         </div>
       </article>
 
-      <!-- 02 Capital -->
-      <article class="foundation-card" id="engine-capital">
+      <!-- 02 Technology -->
+      <article class="foundation-card" id="engine-technology">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
           <span class="f-num">02</span>
+          <span class="f-city">Seoul</span>
+        </div>
+        <div class="f-name">Technology</div>
+        <div class="f-sub">Birch Sound Tech Lab</div>
+        <div class="f-body i18n"
+          data-ko="AI &middot; AR/VR/XR &middot; 라이다 인터랙티브 &middot; 미디어아트 &mdash; 10년간 축적된 자체 기술 스택."
+          data-en="AI &middot; AR/VR/XR &middot; LiDAR interactive &middot; media art &mdash; a decade of in-house technology.">AI &middot; AR/VR/XR &middot; 라이다 인터랙티브 &middot; 미디어아트 &mdash; 10년간 축적된 자체 기술 스택.</div>
+        <div class="f-bottom">
+          <div class="f-stats">
+            <div class="f-stat"><span class="val">AI &middot; XR</span><span class="lbl">AR/VR/XR</span></div>
+            <div class="f-stat"><span class="val">Immersive</span><span class="lbl">Media art</span></div>
+            <div class="f-stat"><span class="val">Live AI</span><span class="lbl">Spectacle</span></div>
+            <button type="button" data-portfolio-open style="display:block;margin-top:12px;padding:10px 16px;border:1px solid var(--accent);width:100%;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:transparent;cursor:pointer;transition:all .2s"
+              onmouseover="this.style.background='var(--accent)';this.style.color='var(--bg)'"
+              onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">Tech Portfolio &rarr;</button>
+          </div>
+          <div class="f-tagline" style="font-size:13px">A decade of in-house tech, ready for the stage.</div>
+        </div>
+      </article>
+
+      <!-- 03 Capital -->
+      <article class="foundation-card" id="engine-capital">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span class="f-num">03</span>
           <span class="f-city">Singapore</span>
         </div>
         <div class="f-name">Capital</div>
@@ -581,140 +779,33 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
         </div>
       </article>
 
-      <!-- 03 Technology -->
-      <article class="foundation-card" id="engine-technology">
-        <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <span class="f-num">03</span>
-          <span class="f-city">Hong Kong</span>
+    </div>
+
+      <!-- Edge / Reasons -->
+      <div class="stage-edge">
+        <div class="edge-quote">
+          <span class="i18n" data-ko="관성 없이 시작하기에, 더 나은 방법을 선택할 수 있습니다." data-en="Starting with zero legacy means we choose the best way, not the usual way.">관성 없이 시작하기에, 더 나은 방법을 선택할 수 있습니다.</span>
+          <span class="edge-quote-accent i18n" data-ko="그것이 우리의 강점입니다." data-en="And that is exactly our edge.">그것이 우리의 강점입니다.</span>
         </div>
-        <div class="f-name">Technology</div>
-        <div class="f-sub">Birch Sound Hong Kong</div>
-        <div class="f-body i18n"
-          data-ko="오디오 인텔리전스와 AI 버추얼 &mdash; 라이브를 살아있는 세계로 만드는 두 개의 기술 축."
-          data-en="Two technical layers that make live a living world. Audio intelligence. AI virtual.">오디오 인텔리전스와 AI 버추얼 &mdash; 라이브를 살아있는 세계로 만드는 두 개의 기술 축.</div>
-        <div class="f-bottom">
-          <div class="f-stats">
-            <div class="f-stat"><span class="val">2</span><span class="lbl">layers</span></div>
-            <div class="f-stat"><span class="val">100+</span><span class="lbl">VFX titles</span></div>
-            <div class="f-stat"><span class="val">Live</span><span class="lbl">AI sync</span></div>
-            <a href="https://www.art19.com/" target="_blank" rel="noopener" style="display:block;margin-top:12px;padding:10px 16px;border:1px solid var(--accent);text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:all .2s"
-              onmouseover="this.style.background='var(--accent)';this.style.color='var(--bg)'"
-              onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">WITH ART19 (AMAZON) &nearr;</a>
+        <div class="edge-reasons">
+          <div class="edge-reason">
+            <div class="edge-tag">[ 자금 ]</div>
+            <div class="edge-body i18n" data-ko="Basis의 라이브 엔터테인먼트 펀드가 안정적 선투자 구조를 구현합니다." data-en="Basis Live Entertainment Fund provides stable pre-investment structure.">Basis의 라이브 엔터테인먼트 펀드가 안정적 선투자 구조를 구현합니다.</div>
           </div>
-          <div class="f-tagline" style="font-size:13px">Two technical layers that make live a living world.</div>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- Convergence divider -->
-    <div class="convergence">
-      <div class="convergence-text">&darr;&ensp;CONVERGING ON&ensp;&darr;</div>
-    </div>
-
-    <!-- 04 Live IP — THE STAGE -->
-    <div style="margin-bottom:12px"><span class="metatag" style="color:var(--accent)">[ THE STAGE ]</span></div>
-    <div class="stage-card" id="engine-live">
-      <div class="stage-num">04</div>
-      <div>
-        <div class="stage-name">Live IP</div>
-        <div class="stage-sub">Flagship Festival &middot; APAC Multi-City</div>
-        <div class="metatag" style="color:var(--accent);margin-top:10px">[ FESTIVAL &amp; EXHIBITION ]</div>
-      </div>
-      <div>
-        <div class="stage-body i18n"
-          data-ko="십 년의 모든 축적이 만나는 단 하나의 무대. 경험하지 않으면 설명할 수 없는 무대."
-          data-en="Where ten years converge. The stage you can't explain without being there.">십 년의 모든 축적이 만나는 단 하나의 무대. 경험하지 않으면 설명할 수 없는 무대.</div>
-        <div class="stage-tagline">Where ten years converge.</div>
-      </div>
-      <div class="stage-stats">
-        <div class="stage-stat"><span class="val">SGP</span><span class="lbl">flagship</span></div>
-        <div class="stage-stat"><span class="val">APAC</span><span class="lbl">tour</span></div>
-      </div>
-    </div>
-
-    <!-- Ecosystem cycle — circular diagram -->
-    <div style="margin-top:80px;padding-top:60px;border-top:1px solid var(--border)">
-      <div class="eco-grid">
-        <!-- SVG Diagram — 3 foundations converge to 1 stage -->
-        <div class="eco-diagram-wrap">
-          <svg viewBox="0 0 480 480" style="width:100%;height:auto">
-            <defs>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="blur"/>
-                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <style>
-              @keyframes eco-pulse{0%,100%{opacity:.3;r:15}50%{opacity:.6;r:18}}
-              @keyframes eco-glow{0%,100%{opacity:.6}50%{opacity:1}}
-              @keyframes eco-flow{0%{stroke-dashoffset:40}100%{stroke-dashoffset:0}}
-              .eco-node-glow{animation:eco-pulse 3s ease-in-out infinite}
-              .eco-node-core{animation:eco-glow 3s ease-in-out infinite;filter:url(#glow)}
-              .eco-flow-line{stroke-dasharray:8 4;animation:eco-flow 2s linear infinite}
-            </style>
-            <!-- Top 3 nodes -->
-            <!-- Content node -->
-            <circle class="eco-node-glow" cx="100" cy="100" r="15" fill="none" stroke="#a696e0" stroke-opacity=".3"/>
-            <circle class="eco-node-core" cx="100" cy="100" r="8" fill="#a696e0"/>
-            <text x="100" y="60" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="300" fill="#faf8f4">Content</text>
-            <text x="100" y="45" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#a696e0">01</text>
-            <!-- Capital node -->
-            <circle class="eco-node-glow" cx="240" cy="100" r="15" fill="none" stroke="#a696e0" stroke-opacity=".3" style="animation-delay:.5s"/>
-            <circle class="eco-node-core" cx="240" cy="100" r="8" fill="#a696e0" style="animation-delay:.5s"/>
-            <text x="240" y="60" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="300" fill="#faf8f4">Capital</text>
-            <text x="240" y="45" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#a696e0">02</text>
-            <!-- Technology node -->
-            <circle class="eco-node-glow" cx="380" cy="100" r="15" fill="none" stroke="#a696e0" stroke-opacity=".3" style="animation-delay:1s"/>
-            <circle class="eco-node-core" cx="380" cy="100" r="8" fill="#a696e0" style="animation-delay:1s"/>
-            <text x="380" y="60" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="300" fill="#faf8f4">Technology</text>
-            <text x="380" y="45" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#a696e0">03</text>
-            <!-- Flow lines from 3 nodes to bottom center -->
-            <line class="eco-flow-line" x1="100" y1="118" x2="240" y2="330" stroke="#a696e0" stroke-opacity=".4" stroke-width="1"/>
-            <line class="eco-flow-line" x1="240" y1="118" x2="240" y2="330" stroke="#a696e0" stroke-opacity=".4" stroke-width="1" style="animation-delay:.3s"/>
-            <line class="eco-flow-line" x1="380" y1="118" x2="240" y2="330" stroke="#a696e0" stroke-opacity=".4" stroke-width="1" style="animation-delay:.6s"/>
-            <!-- Arrows on lines -->
-            <text x="165" y="230" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#a696e0" opacity=".6">&darr;</text>
-            <text x="240" y="230" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#a696e0" opacity=".6">&darr;</text>
-            <text x="315" y="230" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#a696e0" opacity=".6">&darr;</text>
-            <!-- Bottom center: Live IP (large node) -->
-            <circle cx="240" cy="360" r="36" fill="none" stroke="rgba(232,228,220,.08)" stroke-width="1"/>
-            <circle cx="240" cy="360" r="28" fill="none" stroke="rgba(166,150,224,.25)" stroke-width="1" stroke-dasharray="3 6"/>
-            <circle class="eco-node-glow" cx="240" cy="360" r="20" fill="none" stroke="#a696e0" stroke-opacity=".3" style="animation-delay:1.5s"/>
-            <circle class="eco-node-core" cx="240" cy="360" r="12" fill="#a696e0" style="animation-delay:1.5s"/>
-            <text x="240" y="415" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#faf8f4" letter-spacing="-0.5">Live IP</text>
-            <text x="240" y="435" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-style="italic" font-size="16" font-weight="300" fill="#a696e0">One Stage.</text>
-          </svg>
-        </div>
-
-        <!-- Right: why we won't fail -->
-        <div>
-          <div style="font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,32px);line-height:1.3;color:var(--ink-0);margin-bottom:32px;word-break:keep-all">
-            <span class="i18n" data-ko="관성 없이 시작하기에, 더 나은 방법을 선택할 수 있습니다." data-en="Starting with zero legacy means we choose the best way, not the usual way.">관성 없이 시작하기에, 더 나은 방법을 선택할 수 있습니다.</span><br>
-            <span style="color:var(--accent)" class="i18n" data-ko="그것이 우리의 강점입니다." data-en="And that is exactly our edge.">그것이 우리의 강점입니다.</span>
+          <div class="edge-reason">
+            <div class="edge-tag">[ 운영 ]</div>
+            <div class="edge-body i18n" data-ko="아시아 12개 시장 투어 운영 경험을 가진 전략적 파트너와 협력합니다." data-en="Strategic partnership with a world-class group with touring experience across 12+ Asian markets.">아시아 12개 시장 투어 운영 경험을 가진 전략적 파트너와 협력합니다.</div>
+            <a class="ops-partner-btn" href="#" target="_blank" rel="noopener" aria-label="Operations Partner"><span class="ops-partner-label">Operations Partner</span><span class="ops-partner-arrow">&#8599;</span></a>
           </div>
-          <div class="eco-reasons">
-            <div style="padding-bottom:18px;border-bottom:1px solid var(--border)">
-              <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;margin-bottom:6px">[ 자금 ]</div>
-              <div style="font-family:var(--ko);font-size:14px;line-height:1.65;color:var(--ink-1)" class="i18n"
-                data-ko="Basis의 라이브 엔터테인먼트 펀드가 안정적 선투자 구조를 구현합니다."
-                data-en="Basis Live Entertainment Fund provides stable pre-investment structure.">Basis의 라이브 엔터테인먼트 펀드가 안정적 선투자 구조를 구현합니다.</div>
-            </div>
-            <div style="padding-bottom:18px;border-bottom:1px solid var(--border)">
-              <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;margin-bottom:6px">[ 운영 ]</div>
-              <div style="font-family:var(--ko);font-size:14px;line-height:1.65;color:var(--ink-1)" class="i18n"
-                data-ko="아시아 12개 시장 투어 운영 경험을 가진 전략적 파트너와 협력합니다."
-                data-en="Strategic partnership with a world-class group with touring experience across 12+ Asian markets.">아시아 12개 시장 투어 운영 경험을 가진 전략적 파트너와 협력합니다.</div>
-            </div>
-            <div>
-              <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;margin-bottom:6px">[ 기획 ]</div>
-              <div style="font-family:var(--ko);font-size:14px;line-height:1.65;color:var(--ink-1)" class="i18n"
-                data-ko="글로벌 공연 투어 설계자를 내부화. 관성 없이 시작한다는 것은 더 나은 방법을 선택할 수 있다는 뜻입니다."
-                data-en="Internalized global tour architects. Starting with zero legacy means choosing better methods.">글로벌 공연 투어 설계자를 내부화. 관성 없이 시작한다는 것은 더 나은 방법을 선택할 수 있다는 뜻입니다.</div>
-            </div>
+          <div class="edge-reason">
+            <div class="edge-tag">[ 기획 ]</div>
+            <div class="edge-body i18n" data-ko="글로벌 공연 투어 설계자를 내부화. 관성 없이 시작한다는 것은 더 나은 방법을 선택할 수 있다는 뜻입니다." data-en="Internalized global tour architects. Starting with zero legacy means choosing better methods.">글로벌 공연 투어 설계자를 내부화. 관성 없이 시작한다는 것은 더 나은 방법을 선택할 수 있다는 뜻입니다.</div>
           </div>
         </div>
       </div>
+
+    </div>
+
     </div>
   </div>
 </section>
@@ -723,48 +814,65 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 <section class="business-tracks-section fade-up">
   <div class="content-max">
     <div class="metatag" style="margin-bottom:14px">[ 004 &middot; BUSINESS TRACKS ]</div>
-    <div style="font-family:var(--ko);font-size:16px;line-height:1.75;color:var(--ink-1);max-width:var(--body-max);margin-bottom:40px;word-break:keep-all" class="i18n"
-      data-ko="Flagship Festival은 '보여주는 무대'가 아니라 '함께 호흡하는 시간'입니다. 관객의 호흡(Breath out)이 곧 작품이 되는 &mdash; Play Based Music Culture."
-      data-en="Flagship Festival is not a stage to watch. It is a moment to breathe with. The audience's breath &mdash; RAUKH &mdash; becomes the work itself.">Flagship Festival은 '보여주는 무대'가 아니라 '함께 호흡하는 시간'입니다. 관객의 호흡(Breath out)이 곧 작품이 되는 &mdash; Play Based Music Culture.</div>
-    <h2 style="font-family:var(--en);font-weight:700;font-size:clamp(48px,8vw,120px);letter-spacing:-.04em;line-height:.92;text-transform:uppercase;margin-bottom:48px">PLAY BASED<br><span style="font-family:var(--serif);font-style:italic;font-weight:300;color:var(--accent);text-transform:none">music culture.</span></h2>
+    <h2 class="tracks-h2">PLAY BASED<br><span class="it">music culture.</span></h2>
+    <p class="tracks-lede i18n"
+      data-ko="Flagship Festival은 '보여주는 무대'가 아니라 '함께 호흡하는 시간'입니다."
+      data-en="Flagship Festival is not a stage to watch — it is a moment to breathe with.">Flagship Festival은 '보여주는 무대'가 아니라 '함께 호흡하는 시간'입니다.</p>
+    <div class="tracks-quote i18n-html"
+      data-ko="&ldquo;관객의 호흡(Breath&nbsp;out)이 곧 작품이 된다.&rdquo;<span class=&quot;pbm&quot;>Play Based Music Culture</span>"
+      data-en="&ldquo;Every breath becomes the work.&rdquo;<span class=&quot;pbm&quot;>Play Based Music Culture</span>">&ldquo;관객의 호흡(Breath&nbsp;out)이 곧 작품이 된다.&rdquo;<span class="pbm">Play Based Music Culture</span></div>
 
-    <div class="track-cards">
-      <div style="position:relative;overflow:hidden;border:1px solid var(--border)">
-        <div style="height:240px;overflow:hidden">
-          <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=600&q=80&auto=format&fit=crop" alt="Festival stage" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6)">
+    <div class="tracks-divider">
+      <span class="lbl">[ Three Tracks ]</span>
+      <span class="rule"></span>
+      <span class="lbl" style="color:var(--accent)">A / B / C</span>
+    </div>
+
+    <div class="track-cards-v2">
+      <article class="track-card-v2">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&q=80&auto=format&fit=crop" alt="Festival stage" loading="lazy">
+          <span class="corner"></span>
+          <div class="track-letter">A<span class="sub">Track A</span></div>
         </div>
-        <div style="padding:24px">
-          <div class="metatag" style="color:var(--accent);margin-bottom:8px">Track A</div>
-          <div style="font-family:var(--en);font-size:24px;font-weight:700;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:12px">Direct Tour</div>
-          <div style="font-family:var(--ko);font-size:14px;line-height:1.65;color:var(--ink-1)" class="i18n"
-            data-ko="버치사운드가 직접 기획&middot;운영하는 멀티시티 페스티벌 투어. Singapore Flagship &middot; May 2027."
-            data-en="A multi-city festival tour, planned and operated by Birch Sound. Singapore Flagship &middot; May 2027">버치사운드가 직접 기획&middot;운영하는 멀티시티 페스티벌 투어. Singapore Flagship &middot; May 2027.</div>
+        <div class="body">
+          <div class="name">Direct Tour</div>
+          <div class="desc i18n"
+            data-ko="버치사운드가 직접 기획&middot;운영하는 멀티시티 페스티벌 투어."
+            data-en="A multi-city festival tour, planned and operated by Birch Sound.">버치사운드가 직접 기획&middot;운영하는 멀티시티 페스티벌 투어.</div>
+          <div class="meta"><span class="dot"></span>Singapore Flagship &middot; May 2027</div>
         </div>
-      </div>
-      <div style="position:relative;overflow:hidden;border:1px solid var(--border)">
-        <div style="height:240px;overflow:hidden">
-          <img src="img/Gemini_Generated_Image_16l3n16l3n16l3n1.png" alt="IP License City" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left center;filter:brightness(0.6)">
+      </article>
+
+      <article class="track-card-v2">
+        <div class="img-wrap">
+          <img src="img/Gemini_Generated_Image_16l3n16l3n16l3n1.png" alt="IP License City" loading="lazy" style="object-position:left center">
+          <span class="corner"></span>
+          <div class="track-letter">B<span class="sub">Track B</span></div>
         </div>
-        <div style="padding:24px">
-          <div class="metatag" style="color:var(--accent);margin-bottom:8px">Track B</div>
-          <div style="font-family:var(--en);font-size:24px;font-weight:700;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:12px">IP Licensing</div>
-          <div style="font-family:var(--ko);font-size:14px;line-height:1.65;color:var(--ink-1)" class="i18n"
-            data-ko="콘텐츠 IP를 글로벌 시장에 라이선싱. 2026"
-            data-en="Content IP licensed into global markets. 2026">콘텐츠 IP를 글로벌 시장에 라이선싱. 2026</div>
+        <div class="body">
+          <div class="name">IP Licensing</div>
+          <div class="desc i18n"
+            data-ko="콘텐츠 IP를 글로벌 시장에 라이선싱."
+            data-en="Content IP licensed into global markets.">콘텐츠 IP를 글로벌 시장에 라이선싱.</div>
+          <div class="meta"><span class="dot"></span>Global Markets &middot; 2026</div>
         </div>
-      </div>
-      <div style="position:relative;overflow:hidden;border:1px solid var(--border)">
-        <div style="height:240px;overflow:hidden">
-          <img src="img/Gemini_Generated_Image_vexj7hvexj7hvexj.png" alt="Immersive media art exhibition" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6)">
+      </article>
+
+      <article class="track-card-v2">
+        <div class="img-wrap">
+          <img src="img/Gemini_Generated_Image_vexj7hvexj7hvexj.png" alt="Immersive media art exhibition" loading="lazy">
+          <span class="corner"></span>
+          <div class="track-letter">C<span class="sub">Track C</span></div>
         </div>
-        <div style="padding:24px">
-          <div class="metatag" style="color:var(--accent);margin-bottom:8px">Track C</div>
-          <div style="font-family:var(--en);font-size:24px;font-weight:700;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:12px">Media Art &amp; Tech</div>
-          <div style="font-family:var(--ko);font-size:14px;line-height:1.65;color:var(--ink-1)" class="i18n"
-            data-ko="AI&middot;XR 기반 몰입형 전시와 세계관 확장. 2026."
-            data-en="Immersive AI &middot; XR exhibitions. Worldbuilding beyond the stage. 2026">AI&middot;XR 기반 몰입형 전시와 세계관 확장. 2026.</div>
+        <div class="body">
+          <div class="name">Media Art &amp; Tech</div>
+          <div class="desc i18n"
+            data-ko="AI&middot;XR 기반 몰입형 전시와 세계관 확장."
+            data-en="Immersive AI &middot; XR exhibitions. Worldbuilding beyond the stage.">AI&middot;XR 기반 몰입형 전시와 세계관 확장.</div>
+          <div class="meta"><span class="dot"></span>Immersive Exhibition &middot; 2026</div>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -777,7 +885,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
     </div>
 
     <h2 class="flagship-title">FLAGSHIP<br><span class="outline">FESTIVAL.</span></h2>
-    <div class="metatag" style="margin-top:12px;color:var(--ink-2)">(IP title to be announced in July)</div>
+    <div class="flagship-tba"><span class="tba-dot"></span><span>IP title to be announced &mdash; July 2026</span></div>
 
     <div class="flagship-grid">
       <div>
@@ -791,8 +899,8 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
         <div style="margin-top:32px">
           <div class="metatag" style="margin-bottom:12px">[ ARTIST ARCHITECTURE ]</div>
           <p class="i18n-html" style="font-family:var(--ko);font-size:14px;line-height:1.65;color:var(--ink-1)"
-            data-ko="Western Headliner &times; K-Pop Act &times; Local City Act<br>집단적 기억 &times; 현재의 파동 &times; 지역의 정체성"
-            data-en="Western Headliner &times; K-Pop Act &times; Local City Act<br>Collective memory &times; Present wave &times; Local identity">Western Headliner &times; K-Pop Act &times; Local City Act<br>집단적 기억 &times; 현재의 파동 &times; 지역의 정체성</p>
+            data-ko="집단적 기억 &times; 현재의 파동 &times; 지역의 정체성<br><span class=&quot;tba&quot;>(to be announced)</span>"
+            data-en="Collective memory &times; Present wave &times; Local identity<br><span class=&quot;tba&quot;>(to be announced)</span>">집단적 기억 &times; 현재의 파동 &times; 지역의 정체성<br><span class="tba">(to be announced)</span></p>
         </div>
 
         <div style="margin-top:32px">
@@ -865,39 +973,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
   </div>
 </section>
 
-<!-- WHY NOW -->
-<section style="padding:120px var(--px);border-top:1px solid var(--border)" class="fade-up">
-  <div class="content-max">
-    <div class="metatag" style="margin-bottom:14px">[ WHY NOW ]</div>
-    <h2 style="font-family:var(--en);font-weight:700;font-size:clamp(48px,8vw,96px);letter-spacing:-.04em;line-height:.95;text-transform:uppercase;margin-bottom:16px">THE MOMENT<br>IS <span style="font-family:var(--serif);font-style:italic;font-weight:300;color:var(--accent);text-transform:none">now.</span></h2>
-    <p style="font-family:var(--ko);font-size:16px;line-height:1.75;color:var(--ink-1);max-width:var(--body-max);margin-bottom:48px;word-break:keep-all" class="i18n"
-      data-ko="세 가지 거대한 변화가 동시에 일어나고 있습니다. 버치사운드는 이 세 개의 파도가 교차하는 지점에 서 있습니다."
-      data-en="Three massive shifts are happening simultaneously. Birch Sound stands at the intersection of these three waves.">세 가지 거대한 변화가 동시에 일어나고 있습니다. 버치사운드는 이 세 개의 파도가 교차하는 지점에 서 있습니다.</p>
-    <div class="why-now-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
-      <div style="padding:32px 24px;border:1px solid var(--border)">
-        <div class="metatag" style="color:var(--accent);margin-bottom:16px">[ 01 ]</div>
-        <div style="font-family:var(--en);font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px" class="i18n" data-ko="아시아 라이브 시장 폭발" data-en="Asia Live Market Explosion">아시아 라이브 시장 폭발</div>
-        <div style="font-family:var(--ko);font-size:14px;line-height:1.65;color:var(--ink-1)" class="i18n"
-          data-ko="팬데믹 이후 아시아-태평양 라이브 공연 시장은 전례 없는 속도로 회복하고 있습니다. 억눌린 경험의 수요가 폭발하고 있습니다."
-          data-en="Post-pandemic, the APAC live performance market is recovering at unprecedented speed. Pent-up demand for experiences is exploding.">팬데믹 이후 아시아-태평양 라이브 공연 시장은 전례 없는 속도로 회복하고 있습니다. 억눌린 경험의 수요가 폭발하고 있습니다.</div>
-      </div>
-      <div style="padding:32px 24px;border:1px solid var(--border)">
-        <div class="metatag" style="color:var(--accent);margin-bottom:16px">[ 02 ]</div>
-        <div style="font-family:var(--en);font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px" class="i18n" data-ko="AI &amp; 버추얼 콘텐츠 르네상스" data-en="AI & Virtual Content Renaissance">AI &amp; 버추얼 콘텐츠 르네상스</div>
-        <div style="font-family:var(--ko);font-size:14px;line-height:1.65;color:var(--ink-1)" class="i18n"
-          data-ko="AI 기반 버추얼 콘텐츠와 인터랙티브 기술은 가장 빠르게 성장하는 포맷입니다. 관객은 소비자에서 참여자로 진화하고 있습니다."
-          data-en="AI-powered virtual content and interactive tech are the fastest-growing formats. Audiences are evolving from consumers to participants.">AI 기반 버추얼 콘텐츠와 인터랙티브 기술은 가장 빠르게 성장하는 포맷입니다. 관객은 소비자에서 참여자로 진화하고 있습니다.</div>
-      </div>
-      <div style="padding:32px 24px;border:1px solid var(--border)">
-        <div class="metatag" style="color:var(--accent);margin-bottom:16px">[ 03 ]</div>
-        <div style="font-family:var(--en);font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px" class="i18n" data-ko="글로벌 엔터테인먼트 IP 시대" data-en="Global Entertainment IP Era">글로벌 엔터테인먼트 IP 시대</div>
-        <div style="font-family:var(--ko);font-size:14px;line-height:1.65;color:var(--ink-1)" class="i18n"
-          data-ko="엔터테인먼트 IP가 글로벌 시장에서 독립 자산 카테고리로 부상하고 있습니다. 라이브 IP의 가치가 재평가되고 있습니다."
-          data-en="Entertainment IP is emerging as an independent asset category in global markets. The value of live IP is being reassessed.">엔터테인먼트 IP가 글로벌 시장에서 독립 자산 카테고리로 부상하고 있습니다. 라이브 IP의 가치가 재평가되고 있습니다.</div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- CONTACT -->
 <section class="contact-section fade-up" id="contact">
@@ -915,7 +991,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
       <div class="i18n-html" style="font-family:var(--ko);font-size:14px;line-height:1.7;color:var(--ink-1)"
         data-ko="서울시 종로구<br>새문안로 5길 13, 401호"
         data-en="13, Saemunnan-ro 5-gil,<br>Jongno-gu, Seoul, Korea">서울시 종로구<br>새문안로 5길 13, 401호</div>
-      <div class="metatag i18n" style="margin-top:12px" data-ko="대표 김한수" data-en="CEO Hansoo Kim">대표 김한수</div>
+      <div class="metatag i18n" style="margin-top:12px" data-ko="대표이사 김한수" data-en="CEO Hansoo Kim">대표이사 김한수</div>
     </div>
     <div class="contact-cell">
       <div class="metatag contact-cell-label">[ CONTACT ]</div>
@@ -1092,5 +1168,199 @@ if(_cm) _cm.addEventListener('click',function(e){
     </form>
   </div>
 </div>
+
+<!-- ============ TECH PORTFOLIO MODAL ============ -->
+<style>
+.tp-overlay{position:fixed;inset:0;background:rgba(8,8,10,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:9998;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.tp-overlay.is-open{opacity:1;pointer-events:auto}
+.tp-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:5vh 24px;pointer-events:none}
+.tp-modal.is-open{pointer-events:auto}
+.tp-panel{background:var(--bg-alt);border:1px solid var(--border-strong);max-width:1080px;width:100%;max-height:90vh;display:flex;flex-direction:column;transform:translateY(24px) scale(.985);opacity:0;transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .35s ease;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(166,150,224,.08)}
+.tp-modal.is-open .tp-panel{transform:translateY(0) scale(1);opacity:1}
+.tp-head{display:flex;justify-content:space-between;align-items:flex-end;padding:36px 44px 28px;border-bottom:1px solid var(--border);flex-shrink:0}
+@media(max-width:768px){.tp-head{padding:24px 24px 18px}}
+.tp-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
+.tp-title{font-family:var(--en);font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1;text-transform:uppercase}
+.tp-title .it{font-family:var(--serif);font-style:italic;font-weight:300;text-transform:none;color:var(--accent)}
+.tp-close{background:transparent;border:1px solid var(--border-strong);color:var(--ink-1);width:42px;height:42px;border-radius:50%;font-size:18px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;line-height:1}
+.tp-close:hover{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.tp-body{overflow-y:auto;padding:36px 44px 44px;scrollbar-width:thin;scrollbar-color:rgba(166,150,224,.3) transparent}
+.tp-body::-webkit-scrollbar{width:6px}
+.tp-body::-webkit-scrollbar-thumb{background:rgba(166,150,224,.3);border-radius:3px}
+@media(max-width:768px){.tp-body{padding:24px}}
+.tp-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media(max-width:900px){.tp-grid{grid-template-columns:1fr;gap:32px}}
+.tp-cat{}
+.tp-cat-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px dotted rgba(166,150,224,.25)}
+.tp-cat-num{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--accent)}
+.tp-cat-title{font-family:var(--en);font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-0)}
+.tp-cat-sub{font-family:var(--ko);font-size:12px;color:var(--ink-2);margin-left:auto}
+.tp-list{font-family:var(--ko);font-size:13.5px;line-height:1.65;color:var(--ink-1);list-style:none;padding:0;margin:0}
+.tp-list li{display:grid;grid-template-columns:46px 1fr;gap:10px;padding:7px 0;word-break:keep-all;border-bottom:1px solid rgba(232,228,220,.04)}
+.tp-list li:last-child{border-bottom:none}
+.tp-list .yr{font-family:var(--mono);font-size:11px;color:var(--ink-2);padding-top:2px;letter-spacing:.04em}
+.tp-list .ti{color:var(--ink-1)}
+.tp-list .ti b{color:var(--ink-0);font-weight:500}
+.tp-list .ti .note{display:block;font-size:11.5px;color:var(--ink-2);margin-top:2px;font-family:var(--mono);letter-spacing:.02em}
+.tp-tagline{margin-top:36px;padding-top:24px;border-top:1px solid var(--border);font-family:var(--serif);font-style:italic;font-size:17px;color:var(--accent);line-height:1.5;text-align:center}
+.tp-stack{margin-top:32px}
+.tp-stack-title{font-family:var(--en);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:14px;font-weight:600}
+.tp-chips{display:flex;flex-wrap:wrap;gap:7px}
+.tp-chip{font-family:var(--mono);font-size:10.5px;padding:6px 11px;border:1px solid var(--border-strong);color:var(--ink-1);letter-spacing:.02em;line-height:1.3}
+.tp-chip.is-accent{border-color:rgba(166,150,224,.45);color:var(--accent)}
+body.tp-locked{overflow:hidden}
+</style>
+
+<div class="tp-overlay" id="tp-overlay" data-portfolio-close></div>
+<div class="tp-modal" id="tp-modal" role="dialog" aria-modal="true" aria-labelledby="tp-title">
+  <div class="tp-panel">
+    <div class="tp-head">
+      <div>
+        <div class="tp-eyebrow">[ Foundation 02 &middot; Technology ]</div>
+        <h2 class="tp-title" id="tp-title">TECH <span class="it">portfolio.</span></h2>
+      </div>
+      <button class="tp-close" type="button" aria-label="Close" data-portfolio-close>&times;</button>
+    </div>
+    <div class="tp-body">
+      <div class="tp-grid">
+
+        <section class="tp-cat">
+          <div class="tp-cat-head">
+            <span class="tp-cat-num">A1</span>
+            <span class="tp-cat-title">AI &middot; AR/VR/XR</span>
+          </div>
+          <ul class="tp-list">
+            <li><span class="yr">2026</span><span class="ti"><b>DDP 울트라백화점 캐치게임</b><span class="note">LiDAR sensor &middot; interactive installation &middot; 기획·개발</span></span></li>
+            <li><span class="yr">2026</span><span class="ti"><b>FIND YOUR CHARM</b><span class="note">AI image generation kiosk &middot; 기획·개발</span></span></li>
+            <li><span class="yr">2026</span><span class="ti"><b>InterBuild Interactive</b><span class="note">웹 기반 게임 제작 툴 &middot; 기획·개발</span></span></li>
+            <li><span class="yr">—</span><span class="ti"><b>AI Sync Fountain</b><span class="note">분수쇼·미디어아트 통합제어 자동화 &middot; 기획·개발</span></span></li>
+          </ul>
+        </section>
+
+        <section class="tp-cat">
+          <div class="tp-cat-head">
+            <span class="tp-cat-num">A2</span>
+            <span class="tp-cat-title">Immersive &middot; Exhibition</span>
+          </div>
+          <ul class="tp-list">
+            <li><span class="yr">2025</span><span class="ti"><b>조선요괴전</b> (홍대 레조네)<span class="note">예매율 2위 / 싱가포르·일본·캐나다 투어 협의 중</span></span></li>
+            <li><span class="yr">2025</span><span class="ti"><b>한탄강 미디어파크</b><span class="note">국가유산 미디어아트</span></span></li>
+            <li><span class="yr">2025</span><span class="ti"><b>장보고 기념관</b><span class="note">국가유산 미디어아트</span></span></li>
+            <li><span class="yr">2025</span><span class="ti"><b>경주 대릉원</b><span class="note">국가유산 미디어아트</span></span></li>
+            <li><span class="yr">2025</span><span class="ti"><b>이순신 체험센터</b><span class="note">국가유산 미디어아트</span></span></li>
+            <li><span class="yr">2023</span><span class="ti"><b>싱가포르 VR·XR 〈LOST WORLD〉</b><span class="note">AWE Asia 2023 Best Application Winner</span></span></li>
+            <li><span class="yr">2023</span><span class="ti"><b>포천 한탄강 지질공원 미디어파크</b></span></li>
+            <li><span class="yr">2023</span><span class="ti"><b>포천 아트밸리 천문대 리뉴얼</b></span></li>
+          </ul>
+        </section>
+
+        <section class="tp-cat">
+          <div class="tp-cat-head">
+            <span class="tp-cat-num">A3</span>
+            <span class="tp-cat-title">Live Events &middot; Public Spectacle</span>
+          </div>
+          <ul class="tp-list">
+            <li><span class="yr">2026</span><span class="ti"><b>APEC 정상회의 환영만찬 문화공연</b></span></li>
+            <li><span class="yr">2026</span><span class="ti"><b>에버랜드 개장 50주년 기념 공연</b><span class="note">기획 &middot; AI 영상제작</span></span></li>
+            <li><span class="yr">2025</span><span class="ti"><b>오징어게임 시즌3 광화문광장 Soul Spot 이벤트</b></span></li>
+            <li><span class="yr">2015</span><span class="ti"><b>광주 아시아문화의전당 개관식</b></span></li>
+          </ul>
+        </section>
+
+        <section class="tp-cat">
+          <div class="tp-cat-head">
+            <span class="tp-cat-num">A4</span>
+            <span class="tp-cat-title">Theme Park &middot; Tourism &middot; Public</span>
+          </div>
+          <ul class="tp-list">
+            <li><span class="yr">2022</span><span class="ti"><b>스마트시티·공공 미디어아트 컨설팅</b><span class="note">부산·세종 / LG CNS 협력</span></span></li>
+            <li><span class="yr">2022</span><span class="ti"><b>창저우 다이너소어파크 (중국)</b><span class="note">리뉴얼 플랜 컨설팅</span></span></li>
+            <li><span class="yr">2022</span><span class="ti"><b>월미도 관광특구 리뉴얼 개발</b><span class="note">컨설팅</span></span></li>
+            <li><span class="yr">2022</span><span class="ti"><b>고성군 공룡테마파크 리뉴얼</b></span></li>
+            <li><span class="yr">2022</span><span class="ti"><b>안동 온드레피움 리뉴얼</b><span class="note">컨설팅</span></span></li>
+          </ul>
+        </section>
+
+        <section class="tp-cat">
+          <div class="tp-cat-head">
+            <span class="tp-cat-num">A5</span>
+            <span class="tp-cat-title">Animation</span>
+          </div>
+          <ul class="tp-list">
+            <li><span class="yr">—</span><span class="ti"><b>괴물난동사건의 비밀</b><span class="note">영진위 기획 지원</span></span></li>
+            <li><span class="yr">—</span><span class="ti"><b>평범해서 특별한 나의 별씨</b><span class="note">경기콘텐츠진흥원</span></span></li>
+            <li><span class="yr">—</span><span class="ti"><b>기욤의 놀이일기</b></span></li>
+            <li><span class="yr">—</span><span class="ti"><b>SAABA</b><span class="note">북미 애니메이션</span></span></li>
+          </ul>
+        </section>
+
+        <section class="tp-cat">
+          <div class="tp-cat-head">
+            <span class="tp-cat-num">A6</span>
+            <span class="tp-cat-title">VR 인지훈련 솔루션</span>
+          </div>
+          <ul class="tp-list">
+            <li><span class="yr">—</span><span class="ti"><b>BlueOCEAN</b><span class="note">VR 인지훈련 &middot; 6개 영역 복합</span></span></li>
+            <li><span class="yr">—</span><span class="ti"><b>COMMON LIFE</b><span class="note">VR ADL 일상생활훈련 &middot; 치매초기 대상</span></span></li>
+            <li><span class="yr">—</span><span class="ti"><b>VR 적응훈련 미니게임 3종</b><span class="note">두더지팡 &middot; 펀치마스터 &middot; 메모리매직</span></span></li>
+            <li><span class="yr">—</span><span class="ti"><b>VR 솔루션 납품 (6개소)</b><span class="note">오산 &middot; 부산 금정구 &middot; 강화 &middot; 하남 &middot; 서대문구 &middot; 평택 치매안심센터</span></span></li>
+            <li><span class="yr">—</span><span class="ti"><b>VR 인지훈련 콘텐츠 수출</b><span class="note">일본 C&amp;C CO.,LTD (US$131,082) / 베트남</span></span></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <div class="tp-stack">
+        <div class="tp-stack-title">[ Stack &middot; Capabilities ]</div>
+        <div class="tp-chips">
+          <span class="tp-chip is-accent">AR / VR / XR</span>
+          <span class="tp-chip is-accent">Free-roam HMD</span>
+          <span class="tp-chip is-accent">AI image &middot; video direction</span>
+          <span class="tp-chip is-accent">3-screen LED &middot; ScreenX</span>
+          <span class="tp-chip is-accent">Media art &middot; projection mapping</span>
+          <span class="tp-chip is-accent">Spatial storytelling</span>
+          <span class="tp-chip">RPLIDAR (A1M8 / A2M12)</span>
+          <span class="tp-chip">Python WebSocket server</span>
+          <span class="tp-chip">MediaPipe hand/body tracking</span>
+          <span class="tp-chip">HTML interactive (12m × 5m)</span>
+          <span class="tp-chip">Claude API apps</span>
+          <span class="tp-chip">WebAR &middot; PWA</span>
+          <span class="tp-chip">Telegram Bot &middot; Oracle Cloud VM</span>
+          <span class="tp-chip">pptxgenjs &middot; docx (Node.js)</span>
+        </div>
+      </div>
+
+      <div class="tp-tagline">A decade of in-house tech, ready for the stage.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var overlay = document.getElementById('tp-overlay');
+  var modal = document.getElementById('tp-modal');
+  if(!overlay || !modal) return;
+  function open(){
+    overlay.classList.add('is-open');
+    modal.classList.add('is-open');
+    document.body.classList.add('tp-locked');
+  }
+  function close(){
+    overlay.classList.remove('is-open');
+    modal.classList.remove('is-open');
+    document.body.classList.remove('tp-locked');
+  }
+  document.addEventListener('click', function(e){
+    var openTrig = e.target.closest('[data-portfolio-open]');
+    if(openTrig){ e.preventDefault(); open(); return; }
+    var closeTrig = e.target.closest('[data-portfolio-close]');
+    if(closeTrig){ e.preventDefault(); close(); return; }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+})();
+</script>
+
 </body>
 </html>
