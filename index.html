@@ -723,7 +723,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
             <div class="f-stat"><span class="val">10+</span><span class="lbl">years</span></div>
             <div class="f-stat"><span class="val">6</span><span class="lbl">countries</span></div>
             <div class="f-stat"><span class="val">500+</span><span class="lbl">episodes</span></div>
-            <a href="portfolio.html" style="display:block;margin-top:12px;padding:10px 16px;border:1px solid var(--accent);text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:all .2s"
+            <a id="contentPortfolioLink" href="portfolio.html" style="display:block;margin-top:12px;padding:10px 16px;border:1px solid var(--accent);text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:all .2s"
               onmouseover="this.style.background='var(--accent)';this.style.color='var(--bg)'"
               onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">VIEW PORTFOLIO &rarr;</a>
           </div>
@@ -1142,6 +1142,8 @@ if(_cm) _cm.addEventListener('click',function(e){
     lang = lang === 'ko' ? 'en' : 'ko';
     if(scrollBtn) scrollBtn.textContent = lang === 'ko' ? 'KO / EN' : 'EN / KO';
     if(heroBtn) heroBtn.textContent = lang === 'ko' ? '[ KO / EN ]' : '[ EN / KO ]';
+    var pfLink = document.getElementById('contentPortfolioLink');
+    if(pfLink) pfLink.href = lang === 'ko' ? 'portfolio.html' : 'portfolio_en.html';
     applyLanguage(lang);
   }
   if(scrollBtn) scrollBtn.addEventListener('click', toggle);
