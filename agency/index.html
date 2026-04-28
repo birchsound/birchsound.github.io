@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birch Sound Agency Workteam</title>
+<meta name="description" content="Birch Sound AI Agency Workteam">
+<meta name="robots" content="noindex">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+:root{--bg:#FAFAF7;--bg-card:#FFF;--bg-hover:#F5F3FF;--text:#1a1a2e;--dim:#6b7280;--purple:#7C5CFC;--pl:#EDE9FE;--pd:#5B3FD9;--border:#e5e7eb;--r:16px;--rs:10px;--sh:0 2px 12px rgba(124,92,252,.08);--shh:0 8px 32px rgba(124,92,252,.15);--m:'JetBrains Mono','SF Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,247,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 clamp(16px,4vw,48px);height:56px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--m);font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--text);text-decoration:none}
+.brand i{width:8px;height:8px;border-radius:50%;background:var(--purple);display:inline-block}
+.nav-r{display:flex;align-items:center;gap:16px;font-size:.75rem;color:var(--dim);font-family:var(--m)}
+.nav-r a{color:var(--dim);text-decoration:none}.nav-r a:hover{color:var(--purple)}
+.on{width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;margin-right:4px}
+.wrap{padding:0 clamp(16px,4vw,48px);max-width:960px;margin:0 auto}
+.hero{padding:clamp(40px,8vw,80px) clamp(16px,4vw,48px) clamp(24px,4vw,48px);max-width:960px;margin:0 auto}
+.lbl{font-family:var(--m);font-size:.7rem;letter-spacing:.15em;color:var(--purple);text-transform:uppercase;margin-bottom:12px}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+h1 span{color:var(--purple)}
+.sub{margin-top:12px;font-size:1.05rem;color:var(--dim);max-width:520px}
+.sec{padding-bottom:clamp(32px,4vw,60px)}
+.grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;transition:all .3s cubic-bezier(.16,1,.3,1)}
+.card:hover{background:var(--bg-hover);border-color:var(--purple);box-shadow:var(--shh);transform:translateY(-3px)}
+.card img{width:52px;height:52px;border-radius:14px;object-fit:cover;margin-bottom:16px;border:2px solid var(--pl)}
+.card h3{font-size:1.15rem;font-weight:700;margin-bottom:2px}
+.card h3 small{color:var(--dim);font-weight:400}
+.role{font-size:.8rem;color:var(--dim);font-family:var(--m);margin-bottom:12px}
+.desc{font-size:.88rem;color:var(--dim);line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tags span{font-size:.68rem;font-family:var(--m);padding:3px 8px;border-radius:6px;background:var(--pl);color:var(--pd)}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.tool{display:flex;align-items:center;gap:12px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rs);padding:16px 18px;text-decoration:none;color:var(--text);transition:all .25s}
+.tool:hover{border-color:var(--purple);background:var(--bg-hover);box-shadow:var(--sh)}
+.tool .ico{width:36px;height:36px;border-radius:8px;background:var(--pl);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.tool .tl{font-size:.85rem;font-weight:600}
+.tool .ts{font-size:.7rem;color:var(--dim)}
+.bmh{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.bmh small{font-weight:400;text-transform:none;letter-spacing:0;color:var(--dim)}
+.grid6{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.bm{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px 12px;background:var(--bg-card);border:1px dashed var(--border);border-radius:var(--rs);text-decoration:none;color:var(--text);font-size:.82rem;font-weight:600;transition:all .25s}
+.bm:hover{border-color:var(--purple);border-style:solid;background:var(--pl)}
+.bm em{font-size:1.4rem;font-style:normal}
+.bm small{font-size:.7rem;color:var(--dim);font-weight:400}
+.ngrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.nc{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rs);padding:18px 20px;text-decoration:none;color:var(--text);transition:all .25s}
+.nc:hover{border-color:var(--purple);box-shadow:var(--sh)}
+.nc .t{font-size:.6rem;font-family:var(--m);font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.nc h4{font-size:.9rem;font-weight:600;line-height:1.4;margin-bottom:6px}
+.nc .m{font-size:.7rem;color:var(--dim)}
+footer{padding:32px clamp(16px,4vw,48px);max-width:960px;margin:0 auto;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.7rem;color:var(--dim);font-family:var(--m)}
+footer a{color:var(--purple);text-decoration:none}
+@media(max-width:640px){.grid5,.ngrid{grid-template-columns:1fr}.grid4{grid-template-columns:1fr 1fr}.grid6{grid-template-columns:repeat(3,1fr)}footer{flex-direction:column;gap:8px;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="/agency/" class="brand"><i></i>BIRCH SOUND AGENCY</a>
+<div class="nav-r"><span><span class="on"></span>Online</span><a href="/">birchsound.net</a></div>
+</nav>
+
+<section class="hero">
+<div class="lbl">Agency Pro &mdash; Birch Sound Workteam</div>
+<h1>Live Entertainment<br><span>AI Workteam</span></h1>
+<p class="sub">&#44592;&#54925;, &#46356;&#51088;&#51064;, &#53080;&#53584;&#52768;, &#47560;&#52992;&#54021;, &#44592;&#49696; &mdash; 5&#51064; &#51204;&#45812;&#54016;.<br>&#50836;&#52397;&#54616;&#47732; &#49892;&#54665;&#54616;&#44256;, &#45149;&#45208;&#47732; &#48372;&#44256;&#54633;&#45768;&#45796;.</p>
+</section>
+
+<div class="wrap sec">
+<div class="lbl">// TEAM</div>
+<div class="grid5">
+<div class="card"><img src="img/birch.jfif" alt=""><h3>&#48260;&#52824; <small>BIRCH</small></h3><div class="role">Strategy &amp; Planning</div><div class="desc">&#48260;&#52824;&#49324;&#50868;&#46300; &#51204;&#47029; &#44592;&#54925;, &#48652;&#47004;&#46377;, &#53945;&#54728;, NORY CITY, &#48036;&#51649; &#53080;&#53584;&#52768;, KOCCA &#51648;&#50896;&#49324;&#50629; &#52509;&#44292;.</div><div class="tags"><span>&#51204;&#47029;</span><span>&#48652;&#47004;&#46377;</span><span>IP</span><span>NORY CITY</span><span>&#53945;&#54728;</span></div></div>
+<div class="card"><img src="img/rian.jfif" alt=""><h3>&#47532;&#50504; <small>RIAN</small></h3><div class="role">Design &amp; Visual</div><div class="desc">PPT, &#50937;, PDF, CI/BI, &#51060;&#48120;&#51648;, &#47784;&#49496; &#44536;&#47000;&#54589; &#46321; &#48708;&#51452;&#50620; &#49328;&#52636;&#47932; &#51204;&#48152;.</div><div class="tags"><span>PPT</span><span>&#50937;&#46356;&#51088;&#51064;</span><span>CI/BI</span><span>&#47784;&#49496;</span><span>PDF</span></div></div>
+<div class="card"><img src="img/lumi.jfif" alt=""><h3>&#47336;&#48120; <small>LUMI</small></h3><div class="role">Content Production</div><div class="desc">AI &#50689;&#49345;, &#52896;&#47533;&#53552; &#51068;&#44288;&#49457;, &#53080;&#54000;, IP &#48156;&#44404;, &#53080;&#53584;&#52768; &#44592;&#54925; &#48143; &#51228;&#51089;.</div><div class="tags"><span>AI&#50689;&#49345;</span><span>&#53080;&#54000;</span><span>&#52896;&#47533;&#53552;</span><span>IP</span><span>&#53080;&#53584;&#52768;PD</span></div></div>
+<div class="card"><img src="img/mori.jfif" alt=""><h3>&#47784;&#47532; <small>MORI</small></h3><div class="role">Marketing &amp; Communication</div><div class="desc">SEO, SNS, &#51228;&#50504;&#49436;, &#48372;&#46020;&#51088;&#47308;, &#47560;&#52992;&#54021; &#51204;&#47029; &#49688;&#47549; &#48143; &#49892;&#54665;.</div><div class="tags"><span>&#47560;&#52992;&#54021;</span><span>SEO</span><span>SNS</span><span>&#51228;&#50504;&#49436;</span><span>&#48372;&#46020;&#51088;&#47308;</span></div></div>
+<div class="card"><img src="img/teo.jfif" alt=""><h3>&#53580;&#50724; <small>TEO</small></h3><div class="role">Tech &amp; Development</div><div class="desc">&#50545;, &#50937;, LIDAR, API, &#49436;&#48260;, &#51088;&#46041;&#54868;, Visual Maker &#50868;&#50689; &#46321; &#44592;&#49696; &#44060;&#48156;.</div><div class="tags"><span>&#50937;&#44060;&#48156;</span><span>LIDAR</span><span>AR/XR</span><span>API</span><span>&#51088;&#46041;&#54868;</span></div></div>
+</div>
+</div>
+
+<div class="wrap sec">
+<div class="lbl">// TOOLS</div>
+<div class="grid4">
+<a class="tool" href="https://team.sunnytoon.com/agency" target="_blank"><div class="ico">&#128172;</div><div><div class="tl">Team Chat</div><div class="ts">&#50640;&#51060;&#51204;&#53944;&#50752; &#45824;&#54868;</div></div></a>
+<a class="tool" href="https://visual.sunnytoon.com" target="_blank"><div class="ico">&#127912;</div><div><div class="tl">Visual Maker</div><div class="ts">AI &#51060;&#48120;&#51648;/&#50689;&#49345;</div></div></a>
+<a class="tool" href="https://drive.google.com" target="_blank"><div class="ico">&#128193;</div><div><div class="tl">Google Drive</div><div class="ts">&#44277;&#50976; &#54260;&#45908;</div></div></a>
+<a class="tool" href="/"><div class="ico">&#127760;</div><div><div class="tl">birchsound.net</div><div class="ts">&#54924;&#49324; &#54856;&#54168;&#51060;&#51648;</div></div></a>
+</div>
+</div>
+
+<div class="wrap sec">
+<div class="lbl bmh"><span>// BOOKMARKS</span><small>HTML &#54200;&#51665;&#51004;&#47196; &#52628;&#44032; &#44032;&#45733;</small></div>
+<div class="grid6">
+<a class="bm" href="https://nextsunny-ai.github.io/birchsound-erp/" target="_blank"><em>&#128202;</em>ERP<small>&#52636;&#53748;&#44540;/&#51221;&#49328;</small></a>
+<a class="bm" href="https://www.kocca.kr" target="_blank"><em>&#128203;</em>KOCCA<small>&#51648;&#50896;&#49324;&#50629;</small></a>
+<a class="bm" href="https://www.kipris.or.kr" target="_blank"><em>&#128196;</em>KIPRIS<small>&#53945;&#54728;&#44160;&#49353;</small></a>
+<a class="bm" href="mailto:biz@birchsound.net"><em>&#9993;</em>Mail<small>biz@birchsound.net</small></a>
+<a class="bm" href="https://www.canva.com" target="_blank"><em>&#128444;</em>Canva<small>&#46356;&#51088;&#51064;</small></a>
+<a class="bm" href="https://notion.so" target="_blank"><em>&#128221;</em>Notion<small>&#54532;&#47196;&#51229;&#53944;</small></a>
+</div>
+</div>
+
+<div class="wrap sec">
+<div class="lbl">// INDUSTRY NEWS</div>
+<div class="ngrid" id="ng"></div>
+</div>
+
+<footer><span>&copy; 2026 Birch Sound Inc. &mdash; Agency Workteam</span><a href="/">birchsound.net</a></footer>
+
+<script>
+!async function(){var g=document.getElementById("ng");try{var r=await fetch("data/news.json",{cache:"no-store"});if(!r.ok)throw 0;(await r.json()).slice(0,6).forEach(function(n){var a=document.createElement("a");a.className="nc";a.href=n.url||"#";a.target="_blank";a.rel="noopener";a.innerHTML='<div class="t">'+(n.category||"NEWS")+'</div><h4>'+e(n.title)+'</h4><div class="m">'+(n.source||"")+(n.date?" &middot; "+n.date:"")+"</div>";g.appendChild(a)})}catch(x){g.innerHTML='<p style="color:var(--dim);font-size:.85rem">News loading...</p>'}}();
+function e(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+</script>
+</body>
+</html>
