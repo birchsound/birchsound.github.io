@@ -71,7 +71,7 @@ td{padding:10px 12px;border:1px solid var(--border);color:var(--ink-1);vertical-
 
 <div class="eyebrow">Legal</div>
 <h1>Privacy Policy</h1>
-<div class="updated">Last updated: 14 September 2026</div>
+<div class="updated">Last updated: 21 September 2026</div>
 
 <p class="lead">This Privacy Policy explains how <strong>Birch Sound Inc.</strong> ("Birch Sound", "we", "us", or "our") collects, uses, discloses, and protects personal data in connection with the mobile application <strong>Nobel Heroes</strong> (the "App"). It applies to the App and does not cover any third-party service you may access through it.</p>
 
@@ -87,6 +87,16 @@ td{padding:10px 12px;border:1px solid var(--border);color:var(--ink-1);vertical-
     <td><strong>Camera input</strong></td>
     <td>Live camera images used to render augmented reality content</td>
     <td>To display AR content aligned with your surroundings. Camera images are processed on your device in real time and are not transmitted to or stored on our servers unless you choose to save or share a capture.</td>
+  </tr>
+  <tr>
+    <td><strong>Voice recordings</strong></td>
+    <td>Audio of a question you speak to the AI character, captured only while you hold the speak button and for no more than 30&nbsp;seconds at a time. This feature is available only to visitors aged 18 or over.</td>
+    <td>To understand your question and generate the character's spoken reply. The recording is sent to our AI provider for processing and is <strong>not stored on your device or on our servers</strong>.</td>
+  </tr>
+  <tr>
+    <td><strong>Age information</strong></td>
+    <td>Birth month and year, where you complete the optional registration form</td>
+    <td>To determine whether you meet the minimum age of 18 for the AI conversation, and &mdash; for visitors aged 18 or over who provide an email address &mdash; for the exhibition organiser's visitor list. <strong>Where the form indicates you are under 18, nothing is transmitted to us: your entries remain on your own device.</strong></td>
   </tr>
   <tr>
     <td><strong>Device information</strong></td>
@@ -126,10 +136,10 @@ td{padding:10px 12px;border:1px solid var(--border);color:var(--ink-1);vertical-
 <p>The App requests device permissions only when the relevant feature is used. You may refuse or withdraw any permission at any time through your device settings, although some features may then be unavailable.</p>
 <ul>
   <li><strong>Camera</strong> — required for augmented reality features.</li>
+    <li><strong>Microphone</strong> &mdash; requested only if you choose to speak to the AI character, and active only while you hold the speak button. Declining it leaves every other part of the App working.</li>
   <li><strong>Motion and orientation sensors</strong> — used to position AR content correctly as you move.</li>
   <li><strong>Location</strong> — used only where location-based content is offered.</li>
   <li><strong>Photo library or storage</strong> — used only when you choose to save a capture.</li>
-  <li><strong>Notifications</strong> — used only where you have opted in.</li>
 </ul>
 
 <h2><span class="num">4.</span>Legal Bases for Processing</h2>
@@ -137,7 +147,7 @@ td{padding:10px 12px;border:1px solid var(--border);color:var(--ink-1);vertical-
 <ul>
   <li><strong>Performance of a contract</strong> — to provide the App and its features to you.</li>
   <li><strong>Legitimate interests</strong> — to maintain security, diagnose faults, and improve the App, balanced against your rights.</li>
-  <li><strong>Consent</strong> — for optional permissions such as location and notifications, and for any analytics that require consent. You may withdraw consent at any time.</li>
+  <li><strong>Consent</strong> — for optional permissions such as location and the microphone, and for any analytics that require consent. You may withdraw consent at any time.</li>
   <li><strong>Legal obligation</strong> — where we are required to retain or disclose data by law.</li>
 </ul>
 <p>Where the Personal Information Protection Act of the Republic of Korea or the Personal Data Protection Act of Singapore applies, we process personal data on the basis of your consent or as otherwise permitted under those Acts.</p>
@@ -145,7 +155,16 @@ td{padding:10px 12px;border:1px solid var(--border);color:var(--ink-1);vertical-
 <h2><span class="num">5.</span>How We Share Information</h2>
 <p>We do not sell personal data. We share personal data only in the following circumstances:</p>
 <ul>
-  <li><strong>Service providers</strong> — hosting, analytics, and crash reporting providers who process data on our instructions and under contract.</li>
+  <li><strong>Service providers</strong> &mdash; providers who process data on our instructions and under contract:
+    <ul>
+      <li><strong>Google LLC (Gemini API)</strong> &mdash; receives the audio of a question you speak to the AI character, and its transcript, in order to generate a reply. Available only to visitors aged 18 or over.</li>
+      <li><strong>ElevenLabs Inc.</strong> &mdash; receives the text of the reply in order to synthesise speech. It does not receive your voice recording.</li>
+      <li><strong>Exit Games GmbH (Photon)</strong> &mdash; carries live audio between visitors taking part in the same on-site question-and-answer session. Audio passes through their servers and is not recorded by us.</li>
+      <li><strong>Marvy Analytics</strong> &mdash; receives usage events only: counts, durations and feature identifiers. It does not receive your name, email address, voice, or the content of your questions.</li>
+      <li><strong>Content delivery and hosting providers</strong> &mdash; deliver exhibition content to the App. They receive no personal data.</li>
+    </ul>
+  </li>
+  <li><strong>Visual positioning runs entirely on your device.</strong> The App recognises where you are standing from the camera image using on-device processing. Camera images are never uploaded to us or to any third party for this purpose.</li>
   <li><strong>Exhibition and venue partners</strong> — in aggregated or anonymised form, to report on exhibition engagement.</li>
   <li><strong>Legal requirements</strong> — where disclosure is required by law, regulation, or valid legal process.</li>
   <li><strong>Corporate transactions</strong> — in connection with a merger, acquisition, or transfer of assets, subject to the protections of this Policy.</li>
@@ -158,6 +177,8 @@ td{padding:10px 12px;border:1px solid var(--border);color:var(--ink-1);vertical-
 <p>We retain personal data only for as long as necessary for the purposes described in this Policy.</p>
 <ul>
   <li>Camera input used for AR rendering is processed on your device and is not retained by us.</li>
+  <li>Voice recordings are not retained by us in any form. Audio is transmitted to our AI provider for processing and is not written to your device or to our servers. Retention by that provider is governed by our agreement with them.</li>
+  <li>Registration details &mdash; name, email address and birth month and year &mdash; are held for the exhibition organiser's visitor list and deleted on request using the contact details in section 12. Nothing is transmitted to us where the registration form indicates the visitor is under 18.</li>
   <li>Usage and diagnostic data is retained in identifiable form for no longer than is necessary for the purpose, and thereafter is anonymised or deleted.</li>
   <li>Enquiry correspondence is retained for as long as needed to handle the enquiry and to meet any applicable record-keeping obligation.</li>
 </ul>
@@ -178,7 +199,11 @@ td{padding:10px 12px;border:1px solid var(--border);color:var(--ink-1);vertical-
 <p>To exercise any of these rights, contact us using the details in section 12. We will respond within the period required by applicable law. You also have the right to lodge a complaint with your local data protection authority — in the Republic of Korea, the Personal Information Protection Commission.</p>
 
 <h2><span class="num">10.</span>Children's Privacy</h2>
-<p>The App is not directed to children under the age of 13, and we do not knowingly collect personal data from them. Where a child uses the App at an exhibition venue, we expect that use to take place with the involvement of a parent, guardian, or supervising adult. If you believe a child has provided personal data to us, please contact us and we will delete it.</p>
+<p>The App is rated as suitable for visitors aged 9 and over, and is designed to be used by children at the exhibition. We have built it so that this is possible without collecting personal data from them.</p>
+<p><strong>Nothing is transmitted to us about a visitor under 18.</strong> The registration form asks for a birth month and year. Where those indicate the visitor is under 18, the form's contents &mdash; including any name or email address entered &mdash; remain on that visitor's own device and are never sent to us or to the exhibition organiser.</p>
+<p><strong>The AI conversation is restricted to visitors aged 18 or over.</strong> It is the only feature that records voice, and it cannot be opened unless the registration form indicates the visitor is 18 or over. Every other part of the App &mdash; the augmented reality, the narration, the subtitles and the capture features &mdash; is available to all ages.</p>
+<p>The minimum age is self-declared and we do not verify it. We say so plainly rather than imply a check that does not exist. Where a child uses the App at the venue we expect a parent, guardian, or supervising adult to be involved.</p>
+<p>If you believe a child has provided personal data to us, please contact us using the details in section 12 and we will delete it.</p>
 
 <h2><span class="num">11.</span>Changes to This Policy</h2>
 <p>We may update this Policy from time to time. Where changes are material, we will provide notice through the App or on this page before they take effect. The date at the top of this page indicates when this Policy was last revised.</p>
