@@ -316,7 +316,8 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 .footer{padding:48px var(--px);border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;align-items:center}
 @media(max-width:768px){.footer{grid-template-columns:1fr;text-align:center;gap:20px}}
 .footer-logo{font-family:var(--en);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
-.footer-nav{display:flex;justify-content:center;gap:24px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.footer-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.footer-nav a{min-height:44px;display:inline-flex;align-items:center}
 .footer-nav a:hover{color:var(--accent)}
 .footer-right{text-align:right;font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.06em}
 @media(max-width:768px){.footer-right{text-align:center}}
@@ -1021,7 +1022,8 @@ html{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
     <div><img src="img/logo-white.png" alt="Birch Sound" style="height:40px;width:auto;margin-bottom:10px"></div>
     <div class="metatag" style="margin-top:6px">Formerly AKATV &mdash; est. 2015</div>
   </div>
-  <div class="footer-nav" style="flex-wrap:wrap"><a href="https://norycity.com/" target="_blank" rel="noopener noreferrer">NORY CITY ↗</a>
+  <div class="footer-nav" style="flex-wrap:wrap">
+    <a href="https://www.instagram.com/birchsound.official/" target="_blank" rel="noopener noreferrer" aria-label="Birch Sound official Instagram (opens in a new tab)">Instagram · @birchsound.official ↗</a><a href="https://norycity.com/" target="_blank" rel="noopener noreferrer">NORY CITY ↗</a>
     <a href="#about">About</a>
     <a href="#business">Business</a>
     <a href="#flagship">Flagship</a>
