@@ -49,7 +49,8 @@ img{display:block;max-width:100%}
 .hero-top{position:absolute;top:0;left:0;right:0;z-index:5;display:grid;grid-template-columns:1fr auto 1fr;padding:34px calc(var(--px) + 44px) 0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .hero-top nav{display:flex;gap:24px;color:var(--ink-2)}
 @media(max-width:900px){.hero-top{grid-template-columns:1fr 1fr}.hero-top nav{display:none}}
-.hero-c{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 var(--px)}
+.hero-c{position:absolute;top:130px;left:0;right:0;bottom:170px;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 var(--px);overflow:hidden}
+@media(max-width:600px){.hero-c{top:110px;bottom:150px}}
 .hero-ko{font-size:clamp(18px,2vw,24px);font-weight:500;letter-spacing:.32em;margin-bottom:28px;color:var(--ink-1)}
 .hero-t{font-family:var(--en);font-weight:700;font-size:clamp(60px,13.5vw,220px);letter-spacing:-.05em;line-height:.86;text-transform:uppercase}
 .hero-t .it{font-weight:300}
@@ -205,7 +206,7 @@ body{word-break:normal;overflow-wrap:break-word}
 <nav class="nav" id="nav">
 <a href="#hero"><img src="img/logo-white.png" alt="Birch Sound"></a>
 <div class="nav-links"><a href="#story">Our Story</a><a href="#invite">Step Inside</a><a href="#nory">Nory City</a><a href="#backstage">Backstage</a><a href="#contact">Contact</a></div>
-<a class="meta" href="index_story_A.html" style="color:var(--ink-0)">KO / EN</a>
+<a class="meta" href="index.html" style="color:var(--ink-0)">KO / EN</a>
 </nav>
 <div class="rail" id="rail">
 <a href="#s1" data-t="s1"><span>Make</span>01<i></i></a>
@@ -219,10 +220,10 @@ body{word-break:normal;overflow-wrap:break-word}
 <div class="hero-bg"><img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1800&q=80&auto=format&fit=crop" alt="Live concert crowd"></div>
 <div class="hero-ov"></div>
 <div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
-<div class="hero-top"><div>[&ensp;BY&ensp;]&ensp;BIRCH SOUND &copy;</div><nav><a href="#story">STORY</a><a href="#invite">STEP INSIDE</a><a href="#nory">NORY CITY</a><a href="#contact">CONTACT</a></nav><div style="text-align:right"><a href="index_story_A.html">[ KO / EN ]</a></div></div>
+<div class="hero-top"><div>[&ensp;BY&ensp;]&ensp;BIRCH SOUND &copy;</div><nav><a href="#story">STORY</a><a href="#invite">STEP INSIDE</a><a href="#nory">NORY CITY</a><a href="#contact">CONTACT</a></nav><div style="text-align:right"><a href="index.html">[ KO / EN ]</a></div></div>
 <div class="hero-c">
 <div class="hero-ko">Birch Sound — exhibitions &amp; music festivals</div>
-<h1 class="hero-t" style="font-size:clamp(52px,9.4vw,160px)">Walk into<br>the story.<br>Be inside <span class="it">the music.</span></h1>
+<h1 class="hero-t" style="font-size:clamp(42px,min(9.4vw,14vh),160px)">Walk into<br>the story.<br>Be inside <span class="it">the music.</span></h1>
 <p class="hero-sub">Birch Sound starts from stories, then creates and runs exhibitions and music festivals.</p>
 <div class="hero-steps">We write the story &middot; walk inside it &middot; share the music &middot; carry it to the next</div>
 </div>
